@@ -6,7 +6,12 @@ const path = require('path');
 
 const template = `
 <html>
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="/js/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDI 2017</title>
+  </head>
   <body>
     <div id="app-root"></div>
     <script type="text/javascript" src="/js/main.js"></script>

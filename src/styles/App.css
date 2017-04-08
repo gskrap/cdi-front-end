@@ -1,0 +1,29 @@
+/*light: #EEEEEE*/
+/*medium: #C1C1C1*/
+/*dark: #63666A*/
+/*teal: #21C9AB*/
+
+html {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #63666A;
+}
+
+.app-container {
+    border: 1px solid red;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    position: relative;
+    top: 20%;
+}
+
+.btn-primary {
+    height: 30px;
+    background-color: #21C9AB;
+    color: white;
+    border: none;
+}

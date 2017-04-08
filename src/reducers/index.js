@@ -4,9 +4,9 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         appLoading: action.bool
       })
-    case 'UPDATE_ROLE':
+    case 'UPDATE_CURRENT_USER':
       return Object.assign({}, state, {
-        role: action.role
+        currentUser: action.user
       })
     case 'UPDATE_LOGGED_IN':
       return Object.assign({}, state, {

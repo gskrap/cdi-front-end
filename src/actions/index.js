@@ -9,10 +9,10 @@ export const updateAppLoading = (bool) => {
   }
 }
 
-export const updateRole = (role) => {
+export const updateCurrentUser = (user) => {
   return {
-    type: 'UPDATE_ROLE',
-    role
+    type: 'UPDATE_CURRENT_USER',
+    user
   }
 }
 
@@ -25,61 +25,66 @@ export const updateLoggedIn = (bool) => {
 
 export const getPermissions = () => dispatch => {
   dispatch(updateAppLoading(true))
-  return axios({
-    method: 'get',
-    url: HOST + '/user_status',
-    headers: {Authorization: (window.localStorage.getItem("auth_token"))}
-  })
-    .then((response) => {
-      dispatch(updateLoggedIn(response.data.loggedIn))
-      dispatch(updateRole(response.data.role))
-      dispatch(updateAppLoading(false))
+  setTimeout(() => {
+    return axios({
+      method: 'get',
+      url: HOST + '/user_status',
+      headers: {Authorization: (window.localStorage.getItem("auth_token"))}
     })
-    .catch(function (error) {
-      console.log(error)
-      dispatch(updateAppLoading(false))
-    })
+      .then((response) => {
+        dispatch(updateCurrentUser(response.data.user))
+        dispatch(updateLoggedIn(response.data.loggedIn))
+        dispatch(updateAppLoading(false))
+      })
+      .catch(function (error) {
+        console.log(error)
+        dispatch(updateAppLoading(false))
+      })
+  }, 2000)
 }
 
 export const logIn = (session) => dispatch => {
   dispatch(updateAppLoading(true))
-  return axios({
-    method: 'post',
-    url: HOST + '/sessions',
-    data: {
-      session: {
-        username: session.username,
-        password: session.password
+  setTimeout(() => {
+    return axios({
+      method: 'post',
+      url: HOST + '/sessions',
+      data: {
+        session: {
+          username: session.username,
+          password: session.password
+        }
       }
-    }
-  })
-    .then((response) => {
-      window.localStorage.setItem("auth_token", response.data.auth_token)
-      dispatch(getPermissions())
-      dispatch(updateAppLoading(false))
     })
-    .catch(function (error) {
-      console.log(error)
-      dispatch(updateAppLoading(false))
-    })
+      .then((response) => {
+        window.localStorage.setItem("auth_token", response.data.auth_token)
+        dispatch(getPermissions())
+      })
+      .catch(function (error) {
+        console.log(error)
+        dispatch(updateAppLoading(false))
+      })
+  }, 2000)
 }
 
 export const logOut = () => dispatch => {
   dispatch(updateAppLoading(true))
-  return axios({
-    method: 'delete',
-    url: HOST + '/sessions/' + window.localStorage.getItem("auth_token"),
-  })
-    .then(() => {
-      window.localStorage.removeItem("auth_token")
-      dispatch(updateLoggedIn(false))
-      dispatch(updateRole(null))
-      dispatch(updateAppLoading(false))
+  setTimeout(() => {
+    return axios({
+      method: 'delete',
+      url: HOST + '/sessions/' + window.localStorage.getItem("auth_token"),
     })
-    .catch(function (error) {
-      console.log(error)
-      dispatch(updateAppLoading(false))
-    })
+      .then(() => {
+        window.localStorage.removeItem("auth_token")
+        dispatch(updateLoggedIn(false))
+        dispatch(updateCurrentUser(null))
+        dispatch(updateAppLoading(false))
+      })
+      .catch(function (error) {
+        console.log(error)
+        dispatch(updateAppLoading(false))
+      })
+  }, 2000)
 }
 
 // export const getClasses = () => dispatch => {

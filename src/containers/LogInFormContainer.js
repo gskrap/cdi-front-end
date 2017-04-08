@@ -1,6 +1,6 @@
 import LogInForm from '../components/LogInForm'
 import { connect } from 'react-redux'
-import { logIn, logOut } from '../actions'
+import { logIn } from '../actions'
 
 function mapStateToProps(state) {
   return {}
@@ -9,7 +9,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     logIn: (session) => {dispatch(logIn(session))},
-    logOut: () => {dispatch(logOut())},
   }
 }
 
