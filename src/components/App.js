@@ -1,26 +1,23 @@
 import React from 'react'
+import LogInFormContainer from '../containers/LogInFormContainer'
 
 export default class App extends React.Component {
   componentDidMount() {
-    this.props.getClasses()
+    this.checkUserStatus()
+  }
+
+  checkUserStatus() {
+    if (window.localStorage.getItem("auth_token")) {
+      this.props.getPermissions()
+    }
   }
 
   render() {
     return (
       <div>
-        <h1>{this.props.color}</h1>
-        {(() => {
-          if (this.props.appLoading) {
-            return <h2>Loading</h2>
-          } else {
-            return (
-              <ul>
-                {this.props.classes.map((c) => {return <li key={c.id}>{c.name}</li>})}
-              </ul>
-            )
-          }
-        })()}
-        <button onClick={() => this.props.changeColor("black")}>Change Color</button>
+        <h1>{"Logged In: " + this.props.loggedIn}</h1>
+        <h1>{"Role: " + this.props.role}</h1>
+        <LogInFormContainer/>
       </div>
     )
   }

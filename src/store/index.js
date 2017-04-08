@@ -13,9 +13,10 @@ function configureStore(initialState) {
 }
 
 const store = configureStore({
+  loggedIn: false,
+  role: null,
   appLoading: true,
   classes: [],
-  color: 'blue'
 })
 
 export { store }

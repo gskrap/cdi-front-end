@@ -1,19 +1,18 @@
-import App from '../components/app'
+import App from '../components/App'
 import { connect } from 'react-redux'
-import { changeColor, getClasses } from '../actions'
+import { getPermissions } from '../actions'
 
 function mapStateToProps(state) {
   return {
+    loggedIn: state.loggedIn,
+    role: state.role,
     appLoading: state.appLoading,
-    color: state.color,
-    classes: state.classes
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeColor: (color) => {dispatch(changeColor(color))},
-    getClasses: (classes) => {dispatch(getClasses(classes))}
+    getPermissions: () => {dispatch(getPermissions())},
   }
 }
 

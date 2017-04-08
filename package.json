@@ -1,13 +1,13 @@
 {
   "name": "cdi-front-end",
   "version": "1.0.0",
-  "description": "",
+  "description": "CDI 2017",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "webpack --watch & node server"
   },
   "keywords": [],
-  "author": "",
+  "author": "George Skrapits",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",

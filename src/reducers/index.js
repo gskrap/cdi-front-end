@@ -1,16 +1,16 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'CHANGE_COLOR':
-      return Object.assign({}, state, {
-        color: action.color
-      })
     case 'UPDATE_APP_LOADING':
       return Object.assign({}, state, {
         appLoading: action.bool
       })
-    case 'UPDATE_CLASSES':
+    case 'UPDATE_ROLE':
       return Object.assign({}, state, {
-        classes: action.classes
+        role: action.role
+      })
+    case 'UPDATE_LOGGED_IN':
+      return Object.assign({}, state, {
+        loggedIn: action.bool
       })
     default:
       return state
