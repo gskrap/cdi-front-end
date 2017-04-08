@@ -18,7 +18,7 @@ export default class LogInForm extends React.Component {
         <form className="log-in-form" onSubmit={this.handleSubmit.bind(this)}>
           <input type="text" ref="username" placeholder="username"/><br/>
           <input type="password" ref="password" placeholder="password"/><br/>
-          <input className="btn-primary btn-log" type="submit" value="Log In"/><br/>
+          <input className="btn btn-primary btn-log" type="submit" value="Log In"/><br/>
         </form>
       </div>
     )

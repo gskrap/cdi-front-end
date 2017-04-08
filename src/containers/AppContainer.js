@@ -13,7 +13,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getPermissions: () => {dispatch(getPermissions())},
-    logOut: () => {dispatch(logOut())},
   }
 }
 

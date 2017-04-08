@@ -4,6 +4,14 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         appLoading: action.bool
       })
+    case 'UPDATE_CLASSES_LOADING':
+      return Object.assign({}, state, {
+        classesLoading: action.bool
+      })
+    case 'UPDATE_CLASSES':
+      return Object.assign({}, state, {
+        classes: action.classes
+      })
     case 'UPDATE_CURRENT_USER':
       return Object.assign({}, state, {
         currentUser: action.user

@@ -9,6 +9,20 @@ export const updateAppLoading = (bool) => {
   }
 }
 
+export const updateClassesLoading = (bool) => {
+  return {
+    type: 'UPDATE_CLASSES_LOADING',
+    bool
+  }
+}
+
+export const updateClasses = (classes) => {
+  return {
+    type: 'UPDATE_CLASSES',
+    classes
+  }
+}
+
 export const updateCurrentUser = (user) => {
   return {
     type: 'UPDATE_CURRENT_USER',
@@ -40,7 +54,7 @@ export const getPermissions = () => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 2000)
+  }, 1000)
 }
 
 export const logIn = (session) => dispatch => {
@@ -64,7 +78,7 @@ export const logIn = (session) => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 2000)
+  }, 1000)
 }
 
 export const logOut = () => dispatch => {
@@ -84,16 +98,17 @@ export const logOut = () => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 2000)
+  }, 1000)
 }
 
-// export const getClasses = () => dispatch => {
-//   dispatch(updateAppLoading(true))
-//   return axios.get(`http://cdi-api.herokuapp.com/dance_classes`)
-//     .then((response) => {
-//       setTimeout(() => {
-//         dispatch(updateClasses(response.data))
-//         dispatch(updateAppLoading(false))
-//       }, 1000)
-//     })
-// }
+export const getClasses = (_prefix) => dispatch => {
+  dispatch(updateClassesLoading(true))
+  let prefix = _prefix ? _prefix : ""
+  return axios.get(`http://cdi-api.herokuapp.com${prefix}/dance_classes`)
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateClasses(response.data))
+        dispatch(updateClassesLoading(false))
+      }, 1000)
+    })
+}

@@ -14,6 +14,7 @@ function configureStore(initialState) {
 
 const store = configureStore({
   appLoading: false,
+  classesLoading: false,
   loggedIn: false,
   currentUser: null,
   classes: [],

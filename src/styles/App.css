@@ -21,6 +21,14 @@ main {
     top: 20%;
 }
 
+main > .loading-animation-container {
+    margin-top: 70px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
 .btn-primary {
     height: 30px;
     background-color: #21C9AB;
