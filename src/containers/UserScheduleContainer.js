@@ -1,6 +1,6 @@
-import UserMenuCard from '../components/UserMenuCard'
+import UserSchedule from '../components/UserSchedule'
 import { connect } from 'react-redux'
-import { getClasses, logOut } from '../actions'
+import { getClasses } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -13,9 +13,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getClasses: (_prefix) => {dispatch(getClasses(_prefix))},
-    logOut: (session) => {dispatch(logOut(session))},
   }
 }
 
-let UserMenuCardContainer = connect(mapStateToProps, mapDispatchToProps)(UserMenuCard)
-export default UserMenuCardContainer
+let UserScheduleContainer = connect(mapStateToProps, mapDispatchToProps)(UserSchedule)
+export default UserScheduleContainer

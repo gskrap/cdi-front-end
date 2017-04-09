@@ -2,8 +2,13 @@
   "name": "cdi-front-end",
   "version": "1.0.0",
   "description": "CDI 2017",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gskrap/cdi-front-end.git"
+  },
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./src/ && echo lint passes",
     "watch": "webpack --watch & node server"
   },
   "keywords": [],
@@ -31,6 +36,11 @@
     "webpack": "^2.3.2"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
     "extract-text-webpack-plugin": "^2.1.0"
   }
 }

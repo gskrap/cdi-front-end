@@ -43,7 +43,7 @@ export const getPermissions = () => dispatch => {
     return axios({
       method: 'get',
       url: HOST + '/user_status',
-      headers: {Authorization: (window.localStorage.getItem("auth_token"))}
+      headers: {Authorization: (window.localStorage.getItem('auth_token'))}
     })
       .then((response) => {
         dispatch(updateCurrentUser(response.data.user))
@@ -71,7 +71,7 @@ export const logIn = (session) => dispatch => {
       }
     })
       .then((response) => {
-        window.localStorage.setItem("auth_token", response.data.auth_token)
+        window.localStorage.setItem('auth_token', response.data.auth_token)
         dispatch(getPermissions())
       })
       .catch(function (error) {
@@ -86,10 +86,10 @@ export const logOut = () => dispatch => {
   setTimeout(() => {
     return axios({
       method: 'delete',
-      url: HOST + '/sessions/' + window.localStorage.getItem("auth_token"),
+      url: HOST + '/sessions/' + window.localStorage.getItem('auth_token'),
     })
       .then(() => {
-        window.localStorage.removeItem("auth_token")
+        window.localStorage.removeItem('auth_token')
         dispatch(updateLoggedIn(false))
         dispatch(updateCurrentUser(null))
         dispatch(updateAppLoading(false))
@@ -103,7 +103,7 @@ export const logOut = () => dispatch => {
 
 export const getClasses = (_prefix) => dispatch => {
   dispatch(updateClassesLoading(true))
-  let prefix = _prefix ? _prefix : ""
+  let prefix = _prefix ? _prefix : ''
   return axios.get(`http://cdi-api.herokuapp.com${prefix}/dance_classes`)
     .then((response) => {
       setTimeout(() => {

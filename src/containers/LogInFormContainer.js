@@ -2,7 +2,7 @@ import LogInForm from '../components/LogInForm'
 import { connect } from 'react-redux'
 import { logIn } from '../actions'
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {}
 }
 

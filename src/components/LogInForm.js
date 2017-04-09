@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "../styles/LogInForm.css"
+import '../styles/LogInForm.css'
 
 export default class LogInForm extends React.Component {
   handleSubmit(e) {
@@ -14,11 +14,11 @@ export default class LogInForm extends React.Component {
 
   render() {
     return (
-      <div className="log-in-form-container">
-        <form className="log-in-form" onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" ref="username" placeholder="username"/><br/>
-          <input type="password" ref="password" placeholder="password"/><br/>
-          <input className="btn btn-primary btn-log" type="submit" value="Log In"/><br/>
+      <div className='log-in-form-container'>
+        <form className='log-in-form' onSubmit={this.handleSubmit.bind(this)}>
+          <input type='text' ref='username' placeholder='username'/><br/>
+          <input type='password' ref='password' placeholder='password'/><br/>
+          <input className='btn btn-primary btn-log' type='submit' value='Log In'/><br/>
         </form>
       </div>
     )

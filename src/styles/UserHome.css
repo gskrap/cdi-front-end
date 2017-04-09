@@ -1,0 +1,19 @@
+.user-home {
+    background-color: #EEEEEE;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 50px;
+}
+
+.btn-log {
+    width: 100%;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .user-home {
+        width: 92%;
+        padding: 10px 10px;
+    }
+}
