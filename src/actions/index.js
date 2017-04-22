@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const HOST = 'http://cdi-api.herokuapp.com'
+const HOST = 'https://cdi-api.herokuapp.com'
 
 export const updateAppLoading = (bool) => {
   return {
@@ -104,7 +104,7 @@ export const logOut = () => dispatch => {
 export const getClasses = (_prefix) => dispatch => {
   dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
-  return axios.get(`http://cdi-api.herokuapp.com${prefix}/dance_classes`)
+  return axios.get(`https://cdi-api.herokuapp.com${prefix}/dance_classes`)
     .then((response) => {
       setTimeout(() => {
         dispatch(updateClasses(response.data))
