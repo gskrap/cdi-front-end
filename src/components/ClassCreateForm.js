@@ -22,7 +22,7 @@ export default class ClassCreateForm extends React.Component {
         <form className='class-create-form' onSubmit={this.handleSubmit.bind(this)}>
           <input type='text' ref='name' placeholder='name'/><br/>
           {/*<input type='text' ref='teacherId' placeholder='teacherId'/><br/>*/}
-          <select ref="teacherId">
+          <select ref='teacherId'>
             {this.props.teachers.map((t) => {
               return <option key={t.id} value={t.id}>{t.first_name + ' ' + t.last_name}</option>
             })}

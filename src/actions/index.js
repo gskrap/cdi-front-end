@@ -133,7 +133,7 @@ export const classCreate = (dance_class) => dispatch => {
         }
       }
     })
-      .then((response) => {
+      .then(() => {
         console.log('class created')
         dispatch(updateAppLoading(false))
       })
@@ -146,7 +146,7 @@ export const classCreate = (dance_class) => dispatch => {
 }
 
 export const getTeachers = () => dispatch => {
-  return axios.get(`https://cdi-api.herokuapp.com/teachers`)
+  return axios.get('https://cdi-api.herokuapp.com/teachers')
     .then((response) => {
       setTimeout(() => {
         dispatch(updateTeachers(response.data))

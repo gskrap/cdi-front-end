@@ -1,15 +1,16 @@
 import React from 'react'
+import ClassCard from './ClassCard'
 
 import '../styles/ClassList.css'
 
 export default class ClassList extends React.Component {
   render() {
     return (
-      <ul>
+      <div>
         {this.props.classes.map((c) => {
-          return <li key={c.id}>{c.name}</li>
+          return <ClassCard key={c.id} class={c}/>
         })}
-      </ul>
+      </div>
     )
   }
 }
