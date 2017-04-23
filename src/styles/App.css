@@ -3,10 +3,19 @@
 /*dark: #63666A*/
 /*teal: #21C9AB*/
 
+@font-face {
+    font-family: 'varsity';
+    src: url('../fonts/varsity_regular.woff') format('woff2')
+}
+
 html {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     color: #63666A;
+}
+
+body {
+    margin: 0px !important;
 }
 
 .app-container {
@@ -20,8 +29,11 @@ main {
     /*top: 20%;*/
 }
 
-main > .loading-animation-container {
-    margin-top: 70px;
+.loading-animation-container {
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    top: 220px;
 }
 
 .btn:hover {
@@ -47,6 +59,7 @@ select,
 
 textarea,
 input[type="text"],
+input[type="password"],
 input[type="button"],
 input[type="submit"] {
     -webkit-appearance: none;

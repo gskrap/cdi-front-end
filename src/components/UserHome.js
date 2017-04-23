@@ -9,7 +9,6 @@ export default class UserHome extends React.Component {
     return (
       <div className='user-home'>
         <h1>{`Welcome, ${this.props.user.first_name}!`}</h1>
-        <button className='btn btn-primary btn-log' onClick={this.props.logOut}>Log Out</button>
         <p>{this.props.user.role}</p>
         {(() => {
           if (this.props.user.role === 'admin') {

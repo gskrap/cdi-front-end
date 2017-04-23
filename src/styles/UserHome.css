@@ -1,9 +1,6 @@
 .user-home {
-    border: 1px solid #EEEEEE;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px 50px;
+    width: 500px;
+    margin: auto;
 }
 
 .btn-log {
@@ -13,7 +10,7 @@
 
 @media (max-width: 768px) {
     .user-home {
-        width: 92%;
-        padding: 10px 10px;
+        width: 100%;
+        margin: 0px;
     }
 }

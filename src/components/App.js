@@ -1,4 +1,5 @@
 import React from 'react'
+import AppBannerContainer from '../containers/AppBannerContainer'
 import LoadingAnimation from './LoadingAnimation'
 import LogInFormContainer from '../containers/LogInFormContainer'
 import UserHomeContainer from '../containers/UserHomeContainer'
@@ -19,7 +20,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
-        <h1>CDI 2017</h1>
+        <AppBannerContainer />
         <main>
           {(() => {
             if (this.props.appLoading) {

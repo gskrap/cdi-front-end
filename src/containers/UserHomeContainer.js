@@ -1,6 +1,5 @@
 import UserHome from '../components/UserHome'
 import { connect } from 'react-redux'
-import { logOut } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -8,9 +7,8 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps() {
   return {
-    logOut: (session) => {dispatch(logOut(session))},
   }
 }
 
