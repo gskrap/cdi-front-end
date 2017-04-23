@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const HOST = 'https://cdi-api.herokuapp.com'
+const API = 'https://cdi-api.herokuapp.com'
 
 export const updateAppLoading = (bool) => {
   return {
@@ -23,6 +23,13 @@ export const updateClasses = (classes) => {
   }
 }
 
+export const updateTeachers = (teachers) => {
+  return {
+    type: 'UPDATE_TEACHERS',
+    teachers
+  }
+}
+
 export const updateCurrentUser = (user) => {
   return {
     type: 'UPDATE_CURRENT_USER',
@@ -42,7 +49,7 @@ export const getPermissions = () => dispatch => {
   setTimeout(() => {
     return axios({
       method: 'get',
-      url: HOST + '/user_status',
+      url: API + '/user_status',
       headers: {Authorization: (window.localStorage.getItem('auth_token'))}
     })
       .then((response) => {
@@ -62,7 +69,7 @@ export const logIn = (session) => dispatch => {
   setTimeout(() => {
     return axios({
       method: 'post',
-      url: HOST + '/sessions',
+      url: API + '/sessions',
       data: {
         session: {
           username: session.username,
@@ -86,7 +93,7 @@ export const logOut = () => dispatch => {
   setTimeout(() => {
     return axios({
       method: 'delete',
-      url: HOST + '/sessions/' + window.localStorage.getItem('auth_token'),
+      url: API + '/sessions/' + window.localStorage.getItem('auth_token'),
     })
       .then(() => {
         window.localStorage.removeItem('auth_token')
@@ -109,6 +116,40 @@ export const getClasses = (_prefix) => dispatch => {
       setTimeout(() => {
         dispatch(updateClasses(response.data))
         dispatch(updateClassesLoading(false))
+      }, 1000)
+    })
+}
+
+export const classCreate = (dance_class) => dispatch => {
+  dispatch(updateAppLoading(true))
+  setTimeout(() => {
+    return axios({
+      method: 'post',
+      url: API + '/dance_classes',
+      data: {
+        dance_class: {
+          name: dance_class.name,
+          teacher_id: dance_class.teacherId
+        }
+      }
+    })
+      .then((response) => {
+        console.log('class created')
+        dispatch(updateAppLoading(false))
+      })
+      .catch(function (error) {
+        console.log(error)
+        console.log('class NOT created')
+        dispatch(updateAppLoading(false))
+      })
+  }, 1000)
+}
+
+export const getTeachers = () => dispatch => {
+  return axios.get(`https://cdi-api.herokuapp.com/teachers`)
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateTeachers(response.data))
       }, 1000)
     })
 }

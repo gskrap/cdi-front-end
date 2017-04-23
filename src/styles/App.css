@@ -18,7 +18,7 @@ html {
 
 main {
     position: relative;
-    top: 20%;
+    /*top: 20%;*/
 }
 
 main > .loading-animation-container {
@@ -34,4 +34,22 @@ main > .loading-animation-container {
     background-color: #21C9AB;
     color: white;
     border: none;
+}
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="button"],
+input[type="submit"],
+select,
+.btn-primary {
+    font-size: 16px !important;
+}
+
+textarea,
+input[type="text"],
+input[type="button"],
+input[type="submit"] {
+    -webkit-appearance: none;
+    border-radius: 0;
 }

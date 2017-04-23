@@ -12,6 +12,10 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         classes: action.classes
       })
+    case 'UPDATE_TEACHERS':
+      return Object.assign({}, state, {
+        teachers: action.teachers
+      })
     case 'UPDATE_CURRENT_USER':
       return Object.assign({}, state, {
         currentUser: action.user
