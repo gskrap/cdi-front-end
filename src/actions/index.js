@@ -129,17 +129,16 @@ export const classCreate = (dance_class) => dispatch => {
       data: {
         dance_class: {
           name: dance_class.name,
-          teacher_id: dance_class.teacherId
+          teacher_id: dance_class.teacherId,
+          start_time: dance_class.startTime
         }
       }
     })
       .then(() => {
-        console.log('class created')
         dispatch(updateAppLoading(false))
       })
       .catch(function (error) {
         console.log(error)
-        console.log('class NOT created')
         dispatch(updateAppLoading(false))
       })
   }, 1000)

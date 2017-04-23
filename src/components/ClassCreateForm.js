@@ -1,6 +1,9 @@
 import React from 'react'
+import moment from 'moment'
+import Datetime from 'react-datetime'
 
 import '../styles/ClassCreateForm.css'
+import '../styles/Datetime.css'
 
 export default class ClassCreateForm extends React.Component {
   componentDidMount() {
@@ -13,6 +16,7 @@ export default class ClassCreateForm extends React.Component {
     for (const field in this.refs) {
       dance_class[field] = this.refs[field].value
     }
+    dance_class['startTime'] = moment(document.getElementsByClassName('rdt')[0].firstChild.value, "MM/DD/YYYY h:mm A").utc().format()
     this.props.classCreate(dance_class)
   }
 
@@ -26,6 +30,7 @@ export default class ClassCreateForm extends React.Component {
               return <option key={t.id} value={t.id}>{t.first_name + ' ' + t.last_name}</option>
             })}
           </select>
+          <Datetime defaultValue="Date & Time"/>
           <input className='btn btn-primary' type='submit' value='Submit'/><br/>
         </form>
       </div>

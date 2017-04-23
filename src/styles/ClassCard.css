@@ -18,7 +18,7 @@
     padding-bottom: 5px;
 }
 
-.class-card > .half > .teacher {
+.class-card > .half > .teacher, .date {
     font-size: 12px;
     margin: 5px 0px 0px 0px;
 }
