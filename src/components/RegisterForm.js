@@ -2,20 +2,22 @@ import React from 'react'
 
 import '../styles/Form.css'
 
-export default class LogInForm extends React.Component {
-handleSubmit(e) {
+export default class RegisterForm extends React.Component {
+  handleSubmit(e) {
     e.preventDefault()
-    let session = {}
+    let user = {}
     for (const field in this.refs) {
-      session[field] = this.refs[field].value
+      user[field] = this.refs[field].value
     }
-    this.props.logIn(session)
+    this.props.register(user)
   }
 
   render() {
     return (
       <form className='form' onSubmit={this.handleSubmit.bind(this)}>
         <input type='text' ref='username' placeholder='username'/><br/>
+        <input type='text' ref='firstName' placeholder='first name'/><br/>
+        <input type='text' ref='lastName' placeholder='last name'/><br/>
         <input type='password' ref='password' placeholder='password'/><br/>
         <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
       </form>

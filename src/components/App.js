@@ -1,7 +1,7 @@
 import React from 'react'
 import AppBannerContainer from '../containers/AppBannerContainer'
 import LoadingAnimation from './LoadingAnimation'
-import LogInFormContainer from '../containers/LogInFormContainer'
+import FormToggle from '../components/FormToggle'
 import UserHomeContainer from '../containers/UserHomeContainer'
 
 import '../styles/App.css'
@@ -28,7 +28,7 @@ export default class App extends React.Component {
             } else if (this.props.loggedIn) {
               return <UserHomeContainer/>
             } else {
-              return <LogInFormContainer/>
+              return <FormToggle/>
             }
           })()}
         </main>

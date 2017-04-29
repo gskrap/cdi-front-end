@@ -1,0 +1,55 @@
+.form-toggle {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-toggle-container {
+    flex: 0;
+    height: 142px;
+    text-align: right;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.btn-toggle {
+    border: none;
+    background-color: white;
+    width: 30px;
+    font-size: 11px;
+    border-radius: 5px;
+    height: 50%;
+    margin-right: -6px;
+    /*z-index: -1;*/
+}
+
+.vertical-text {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    width: 60px;
+    position: absolute;
+    margin-top: -8px;
+    margin-left: -32px;
+}
+
+.btn-toggle.true {
+    background-color: #EEEEEE;
+}
+
+.form-container {
+    flex: 1;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-right: 8px;
+    /*z-index: 0;*/
+}
+
+@media (min-width: 768px) {
+    .form-toggle {
+        width: 50%;
+    }
+}

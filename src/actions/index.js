@@ -88,6 +88,32 @@ export const logIn = (session) => dispatch => {
   }, 1000)
 }
 
+export const register = (user) => dispatch => {
+  dispatch(updateAppLoading(true))
+  setTimeout(() => {
+    return axios({
+      method: 'post',
+      url: API + '/users',
+      data: {
+        user: {
+          username: user.username,
+          first_name: user.firstName,
+          last_name: user.lastName,
+          password: user.password
+        }
+      }
+    })
+      .then((response) => {
+        window.localStorage.setItem('auth_token', response.data.auth_token)
+        dispatch(getPermissions())
+      })
+      .catch(function (error) {
+        console.log(error)
+        dispatch(updateAppLoading(false))
+      })
+  }, 1000)
+}
+
 export const logOut = () => dispatch => {
   dispatch(updateAppLoading(true))
   setTimeout(() => {
