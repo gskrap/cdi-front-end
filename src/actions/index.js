@@ -23,6 +23,13 @@ export const updateClasses = (classes) => {
   }
 }
 
+export const updateUsers = (users) => {
+  return {
+    type: 'UPDATE_USERS',
+    users
+  }
+}
+
 export const updateTeachers = (teachers) => {
   return {
     type: 'UPDATE_TEACHERS',
@@ -142,6 +149,15 @@ export const getClasses = (_prefix) => dispatch => {
       setTimeout(() => {
         dispatch(updateClasses(response.data))
         dispatch(updateClassesLoading(false))
+      }, 1000)
+    })
+}
+
+export const getUsers = () => dispatch => {
+  return axios.get(`https://cdi-api.herokuapp.com/users`)
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateUsers(response.data))
       }, 1000)
     })
 }

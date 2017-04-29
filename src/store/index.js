@@ -17,6 +17,7 @@ const store = configureStore({
   classesLoading: false,
   loggedIn: false,
   currentUser: null,
+  users: [],
   classes: [],
   teachers: []
 })

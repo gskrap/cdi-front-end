@@ -9,9 +9,10 @@ export default class AppBanner extends React.Component {
         {(() => {
           if (this.props.loggedIn) {
             return (
-              <div>
-                <div className="half cdi">CDI</div>
-                <div className="half log-out" onClick={this.props.logOut}>log out</div>
+              <div className='loggedIn'>
+                <div className="split cdi">CDI</div>
+                <div className="split name">{this.props.user.first_name}</div>
+                <div className="split log-out"><span onClick={this.props.logOut}>log out</span></div>
               </div>
             )
           } else {

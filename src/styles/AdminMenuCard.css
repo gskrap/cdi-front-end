@@ -1,0 +1,26 @@
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-menu > .left {
+    flex: 0;
+    margin: 4px;
+}
+
+.left > button {
+    background-color: white;
+    border: none;
+    width: 50%;
+    height: 24px;
+    border-radius: 5px;
+}
+
+.admin-menu > .right {
+    flex: 1;
+    margin: 4px;
+}
+
+button.true {
+    background-color: #EEEEEE;
+}
