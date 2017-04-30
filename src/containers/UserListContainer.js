@@ -5,6 +5,7 @@ import { getUsers } from '../actions'
 function mapStateToProps(state) {
   return {
     users: state.users,
+    usersLoading: state.usersLoading
   }
 }
 

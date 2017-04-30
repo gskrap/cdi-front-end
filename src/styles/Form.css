@@ -1,12 +1,47 @@
-
-
-.form > input[type="text"], input[type="password"] {
+.form > input[type="text"], input[type="password"],
+.row > .sub > .rdt > input,
+.row > .sub > .check-container {
     border: none;
     width: 100%;
     height: 30px;
     margin-bottom: 12px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
+    background-color: white;
+    color: #63666A;
+}
+
+.check-container {
+    display: flex;
+}
+
+input[type="checkbox"] {
+    margin: auto;
+}
+
+.row {
+    display: flex;
+}
+
+.row > .sub {
+    flex: 1;
+}
+
+.row > .sub.small {
+    flex: 0;
+}
+
+.row > .sub > span {
+    font-size: 12px;
+}
+
+.gender-list {
+    text-align: center;
+    text-align-last: center;
+    background-color: white;
+    color: #63666A;
+    border-radius: 0;
+    padding-left: 10px;
 }
 
 .form {

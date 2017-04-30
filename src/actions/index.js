@@ -16,6 +16,13 @@ export const updateClassesLoading = (bool) => {
   }
 }
 
+export const updateUsersLoading = (bool) => {
+  return {
+    type: 'UPDATE_USERS_LOADING',
+    bool
+  }
+}
+
 export const updateClasses = (classes) => {
   return {
     type: 'UPDATE_CLASSES',
@@ -77,12 +84,7 @@ export const logIn = (session) => dispatch => {
     return axios({
       method: 'post',
       url: API + '/sessions',
-      data: {
-        session: {
-          username: session.username,
-          password: session.password
-        }
-      }
+      data: {session}
     })
       .then((response) => {
         window.localStorage.setItem('auth_token', response.data.auth_token)
@@ -101,14 +103,7 @@ export const register = (user) => dispatch => {
     return axios({
       method: 'post',
       url: API + '/users',
-      data: {
-        user: {
-          username: user.username,
-          first_name: user.firstName,
-          last_name: user.lastName,
-          password: user.password
-        }
-      }
+      data: {user}
     })
       .then((response) => {
         window.localStorage.setItem('auth_token', response.data.auth_token)
@@ -154,10 +149,12 @@ export const getClasses = (_prefix) => dispatch => {
 }
 
 export const getUsers = () => dispatch => {
+  dispatch(updateUsersLoading(true))
   return axios.get(`https://cdi-api.herokuapp.com/users`)
     .then((response) => {
       setTimeout(() => {
         dispatch(updateUsers(response.data))
+        dispatch(updateUsersLoading(false))
       }, 1000)
     })
 }
@@ -168,13 +165,7 @@ export const classCreate = (dance_class) => dispatch => {
     return axios({
       method: 'post',
       url: API + '/dance_classes',
-      data: {
-        dance_class: {
-          name: dance_class.name,
-          teacher_id: dance_class.teacherId,
-          start_time: dance_class.startTime
-        }
-      }
+      data: {dance_class}
     })
       .then(() => {
         dispatch(updateAppLoading(false))

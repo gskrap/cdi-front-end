@@ -9,6 +9,7 @@ const template = `
   <head>
     <link rel="stylesheet" href="/js/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/c862f51525.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CDI 2017</title>
   </head>

@@ -3,12 +3,14 @@
     flex-direction: column;
 }
 
-.admin-menu > .left {
+.admin-menu > .top {
     flex: 0;
     margin: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #21C9AB;
 }
 
-.left > button {
+.top > button {
     background-color: white;
     border: none;
     width: 50%;
@@ -16,7 +18,7 @@
     border-radius: 5px;
 }
 
-.admin-menu > .right {
+.admin-menu > .bottom {
     flex: 1;
     margin: 4px;
 }

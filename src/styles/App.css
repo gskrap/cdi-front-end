@@ -58,7 +58,7 @@ input[type="button"],
 input[type="submit"],
 select,
 .btn-primary {
-    font-size: 16px !important;
+    font-size: 16px;
 }
 
 textarea,
