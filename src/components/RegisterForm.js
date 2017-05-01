@@ -29,17 +29,18 @@ export default class RegisterForm extends React.Component {
   render() {
     return (
       <form className='form' onSubmit={this.handleSubmit.bind(this)}>
-        <input type='text' ref='username' placeholder='username'/><br/>
-        <input type='text' ref='first_name' placeholder='first name'/><br/>
-        <input type='text' ref='last_name' placeholder='last name'/><br/>
+        <input type='text' ref='username' placeholder='username'/>
+        <input type='text' ref='first_name' placeholder='first name'/>
+        <input type='text' ref='last_name' placeholder='last name'/>
         <div className='row'>
           <div className="sub">
             <span>date of birth</span>
-            <Datetime value={this.state.dateOfBirth}
-                      onChange={this.handleDateChange.bind(this)}
-                      inputProps={{readOnly:true}}
-                      timeFormat={false} closeOnSelect={true}
-                      viewMode="years"/>
+            <Datetime
+              value={this.state.dateOfBirth}
+              onChange={this.handleDateChange.bind(this)}
+              inputProps={{readOnly:true}}
+              timeFormat={false} closeOnSelect={true}
+              viewMode="years"/>
           </div>
           <div className="sub small">
             <span>alumni?</span>
@@ -47,17 +48,17 @@ export default class RegisterForm extends React.Component {
           </div>
           <div className="sub">
             <span>gender</span>
-            <select ref='gender' className="gender-list">
+            <select ref='gender' defaultValue="female" className="gender-list">
               <option value="not_specified">other</option>
-              <option selected value="female">female</option>
+              <option value="female">female</option>
               <option value="male">male</option>
             </select>
           </div>
         </div>
-        <input type='text' ref='email' placeholder='email'/><br/>
-        <input type='text' ref='phone' placeholder='phone number'/><br/>
-        <input type='password' ref='password' placeholder='password'/><br/>
-        <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
+        <input type='text' ref='email' placeholder='email'/>
+        <input type='text' ref='phone' placeholder='phone number'/>
+        <input type='password' ref='password' placeholder='password'/>
+        <input className='btn btn-primary btn-log' type='submit' value='Submit'/>
       </form>
     )
   }

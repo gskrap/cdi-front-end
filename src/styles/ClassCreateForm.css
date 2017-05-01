@@ -13,6 +13,7 @@ select {
     width: 100%;
     height: 30px;
     margin-bottom: 12px;
+    text-align: center;
     text-align-last: center;
     background-color: white;
     color: #63666A;
