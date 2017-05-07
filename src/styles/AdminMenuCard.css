@@ -4,13 +4,14 @@
 }
 
 .admin-menu > .top {
-    flex: 0;
+    display: flex;
     margin: 4px;
     padding: 10px;
     border-bottom: 1px solid #21C9AB;
 }
 
 .top > button {
+    flex: 1;
     background-color: white;
     border: none;
     width: 50%;

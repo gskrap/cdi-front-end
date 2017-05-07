@@ -7,6 +7,7 @@
 }
 
 .class-create-form > input[type="text"],
+.class-create-form > .check-row,
 .class-create-form > .rdt > input[type="text"],
 select {
     border: none;
@@ -26,6 +27,18 @@ select {
 .class-create-form > input[type="submit"] {
     width: 100%;
     font-size: 14px;
+}
+
+.check-row {
+  display: flex;
+}
+
+.check-row > .sub {
+  flex: 1;
+}
+
+.check-row > .sub > span {
+  font-size: 10px;
 }
 
 @media (max-width: 768px) {

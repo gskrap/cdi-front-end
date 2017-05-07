@@ -44,6 +44,13 @@ export const updateTeachers = (teachers) => {
   }
 }
 
+export const updateGroups = (groups) => {
+  return {
+    type: 'UPDATE_GROUPS',
+    groups
+  }
+}
+
 export const updateCurrentUser = (user) => {
   return {
     type: 'UPDATE_CURRENT_USER',
@@ -182,6 +189,15 @@ export const getTeachers = () => dispatch => {
     .then((response) => {
       setTimeout(() => {
         dispatch(updateTeachers(response.data))
+      }, 1000)
+    })
+}
+
+export const getGroups = () => dispatch => {
+  return axios.get('https://cdi-api.herokuapp.com/groups')
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateGroups(response.data))
       }, 1000)
     })
 }

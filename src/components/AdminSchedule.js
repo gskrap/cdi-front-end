@@ -4,9 +4,9 @@ import ClassList from './ClassList'
 
 import '../styles/Schedule.css'
 
-export default class UserSchedule extends React.Component {
+export default class AdminSchedule extends React.Component {
   componentDidMount() {
-    this.props.getClasses(`/users/${this.props.user.id}`)
+    this.props.getClasses()
   }
 
   render() {

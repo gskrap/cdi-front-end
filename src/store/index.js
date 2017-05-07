@@ -20,7 +20,8 @@ const store = configureStore({
   currentUser: null,
   users: [],
   classes: [],
-  teachers: []
+  teachers: [],
+  groups: []
 })
 
 export { store }
