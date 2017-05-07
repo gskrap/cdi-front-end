@@ -6,3 +6,18 @@
     margin: 0;
     padding: 12px;
 }
+
+.user-list > div {
+  font-size: 26px;
+  display: flex
+}
+
+.user-list > div > .left {
+  flex: 1;
+  text-align: right;
+}
+
+.user-list > div > .right {
+  flex: 1;
+  text-align: left;
+}

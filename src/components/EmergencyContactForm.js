@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import '../styles/Form.css'
 
@@ -10,19 +11,51 @@ export default class EmergencyContactForm extends React.Component {
     }
   }
 
+  componentWillMount() {
+    axios.get(`https://cdi-api.herokuapp.com/users/${this.props.userId}/emergency_contacts`)
+      .then((response) => {
+        this.setState({showForm: response.data.length < 1})
+      })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    let emergency_contact = {}
+    for (const field in this.refs) {
+      emergency_contact[field] = this.refs[field].value
+    }
+    let self = this
+    axios({
+      method: 'post',
+      url: `https://cdi-api.herokuapp.com/users/${this.props.userId}/emergency_contacts`,
+      data: {emergency_contact}
+    })
+      .then(function () {
+        self.setState({showForm: false})
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
   render() {
-    if (!this.props.user.emergency_contact_id)
+    if (this.state.showForm)
       return (
         <div>
           <h2 className="warning">please provide emergency contact information</h2>
-          <button className="btn btn-primary" onClick={() => this.setState({showForm: true})}>OK</button>
-          {(() => {
-            if (this.state.showForm)
-            return <h2>FORM</h2>
-          })()}
+          <div className='emergency-contact-form-container'>
+            <h1>Emergency Contact</h1>
+            <form className='form' onSubmit={this.handleSubmit.bind(this)}>
+              <input type='text' ref='first_name' placeholder='first name'/><br/>
+              <input type='text' ref='last_name' placeholder='last name'/><br/>
+              <input type='text' ref='relationship' placeholder='relation'/><br/>
+              <input type='text' ref='email' placeholder='email'/><br/>
+              <input type='text' ref='phone' placeholder='phone'/><br/>
+              <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
+            </form>
+          </div>
         </div>
       )
-    else
-      return null
+    else return null
   }
 }

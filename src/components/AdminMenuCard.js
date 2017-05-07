@@ -23,7 +23,6 @@ export default class AdminMenuCard extends React.Component {
   render() {
     return (
       <div>
-        <h4>Admin Menu</h4>
         <div className='admin-menu'>
           <div className='top'>
             <button className={this.selected('createClass')} onClick={() => this.setView('createClass')}>Create Class</button>

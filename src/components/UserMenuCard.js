@@ -4,13 +4,13 @@ import UserScheduleContainer from '../containers/UserScheduleContainer'
 
 import '../styles/UserMenuCard.css'
 
-export default class AdminMenuCard extends React.Component {
+export default class UserMenuCard extends React.Component {
   render() {
     return (
       <div>
         <div className='user-menu'>
           <div className='top'>
-            <EmergencyContactForm user={this.props.user}/>
+            <EmergencyContactForm userId={this.props.user.id}/>
           </div>
           <div className='bottom'>
             <UserScheduleContainer/>

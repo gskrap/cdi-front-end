@@ -44,6 +44,21 @@ input[type="checkbox"] {
     padding-left: 10px;
 }
 
+.form-container,
+.emergency-contact-form-container {
+  flex: 1;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+}
+
+.emergency-contact-form-container {
+  padding-top: 8px;
+}
+
+.emergency-contact-form-container > h1 {
+  margin: 0;
+}
+
 .form {
     margin-bottom: 0px;
     padding: 14px;

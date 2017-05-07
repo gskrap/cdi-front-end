@@ -23,15 +23,20 @@ export default class UserList extends React.Component {
     else if (this.state.showUser)
       return (
         <div>
+          <button className='btn btn-primary' onClick={() => this.setState({showUser: false})}>back to list</button>
           <UserCard user={this.state.selectedUser}/>
-          <div onClick={() => this.setState({showUser: false})}>back to list</div>
         </div>
       )
     else
       return (
         <div className='user-list'>
           {this.props.users.map((u) => {
-            return <div onClick={() => this.setState({showUser: true, selectedUser: u})}>{u.first_name}</div>
+            return (
+              <div onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
+                <span className='left'>{u.first_name}&nbsp;</span>
+                <span className='right'>{u.last_name}</span>
+              </div>
+            )
           })}
         </div>
       )

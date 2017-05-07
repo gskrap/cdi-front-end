@@ -40,9 +40,6 @@
 }
 
 .form-container {
-    flex: 1;
-    background-color: #EEEEEE;
-    border-radius: 5px;
     margin-top: 8px;
     margin-right: 8px;
     /*z-index: 0;*/

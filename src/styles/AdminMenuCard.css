@@ -6,7 +6,7 @@
 .admin-menu > .top {
     flex: 0;
     margin: 4px;
-    padding-bottom: 12px;
+    padding: 10px;
     border-bottom: 1px solid #21C9AB;
 }
 
