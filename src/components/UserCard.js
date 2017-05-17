@@ -3,6 +3,7 @@ import axios from 'axios'
 import moment from 'moment'
 
 import EmergencyContactCard from '../components/EmergencyContactCard'
+import UserGroupsForm from '../components/UserGroupsForm'
 import LittleLoader from '../components/LittleLoader'
 
 import '../styles/UserCard.css'
@@ -41,6 +42,9 @@ export default class UserCard extends React.Component {
           <span className="icon"><i className="icon fa fa-birthday-cake" aria-hidden="true"/></span>
           <span className="text">{moment(this.user.date_of_birth).format("MMMM d, YYYY")}</span>
         </div>
+        {(() => {
+          if (this.props.currentUser.role === 'admin') return <UserGroupsForm userGroups={this.props.user.groups}/>
+        })()}
         <div className='emergency-contact-list'>
           <h3>Emergency Contacts</h3>
           {(() => {

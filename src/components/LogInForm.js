@@ -3,7 +3,7 @@ import React from 'react'
 import '../styles/Form.css'
 
 export default class LogInForm extends React.Component {
-handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault()
     let session = {}
     for (const field in this.refs) {

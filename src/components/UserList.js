@@ -24,7 +24,7 @@ export default class UserList extends React.Component {
       return (
         <div>
           <button className='btn btn-primary' onClick={() => this.setState({showUser: false})}>back to list</button>
-          <UserCard user={this.state.selectedUser}/>
+          <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
         </div>
       )
     else

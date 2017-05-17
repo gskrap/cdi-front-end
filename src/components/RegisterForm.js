@@ -8,7 +8,8 @@ export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dateOfBirth: moment("2000", "YYYY")
+      dateOfBirth: moment("2000", "YYYY"),
+      alumni: false
     }
   }
 
@@ -19,11 +20,16 @@ export default class RegisterForm extends React.Component {
       user[field] = this.refs[field].value
     }
     user['date_of_birth'] = this.state.dateOfBirth.utc().format()
+    user['alumni'] = this.state.alumni
     this.props.register(user)
   }
 
   handleDateChange(date) {
     this.setState({dateOfBirth: date})
+  }
+
+  toggleAlumni() {
+    this.setState({alumni: !this.state.alumni})
   }
 
   render() {
@@ -44,7 +50,7 @@ export default class RegisterForm extends React.Component {
           </div>
           <div className="sub small">
             <span>alumni?</span>
-            <div className="check-container"><input type="checkbox" ref="alumni" /></div>
+            <div className="check-container"><input type="checkbox" ref="alumni" checked={this.state.alumni} onClick={this.toggleAlumni.bind(this)}/></div>
           </div>
           <div className="sub">
             <span>gender</span>
