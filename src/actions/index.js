@@ -20,6 +20,13 @@ export const updateClassesLoading = (bool) => {
   }
 }
 
+export const updateGroupsLoading = (bool) => {
+  return {
+    type: 'UPDATE_GROUPS_LOADING',
+    bool
+  }
+}
+
 export const updateLocationsLoading = (bool) => {
   return {
     type: 'UPDATE_LOCATIONS_LOADING',
@@ -162,7 +169,6 @@ export const logOut = () => dispatch => {
 }
 
 export const getClasses = (_prefix) => dispatch => {
-  dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
   return axios.get(API + prefix + '/dance_classes')
     .then((response) => {
@@ -184,7 +190,6 @@ export const getLocations = () => dispatch => {
 }
 
 export const getUsers = () => dispatch => {
-  dispatch(updateUsersLoading(true))
   return axios.get(API + '/users')
     .then((response) => {
       setTimeout(() => {
@@ -195,7 +200,6 @@ export const getUsers = () => dispatch => {
 }
 
 export const classCreate = (dance_class) => dispatch => {
-  dispatch(updateAppLoading(true))
   setTimeout(() => {
     return axios({
       method: 'post',
@@ -242,6 +246,7 @@ export const getGroups = () => dispatch => {
     .then((response) => {
       setTimeout(() => {
         dispatch(updateGroups(response.data))
+        dispatch(updateGroupsLoading(false))
       }, TIMEOUT)
     })
 }

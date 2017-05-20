@@ -20,6 +20,10 @@ select {
   color: #63666A;
 }
 
+.class-create-form > select {
+  padding-left: 14px;
+}
+
 .class-create-form {
   margin-bottom: 0px;
 }

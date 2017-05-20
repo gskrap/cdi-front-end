@@ -1,4 +1,4 @@
-.form > input[type="text"], input[type="password"],
+.form > input[type="text"], input[type="password"], input[type="email"],
 .row > .sub > .rdt > input,
 .row > .sub > .check-container {
   border: none;

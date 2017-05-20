@@ -8,6 +8,10 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         classesLoading: action.bool
       })
+    case 'UPDATE_GROUPS_LOADING':
+      return Object.assign({}, state, {
+        groupsLoading: action.bool
+      })
     case 'UPDATE_LOCATIONS_LOADING':
       return Object.assign({}, state, {
         locationsLoading: action.bool

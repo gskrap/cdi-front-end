@@ -1,19 +1,22 @@
 import ClassCreateForm from '../components/ClassCreateForm'
 import { connect } from 'react-redux'
-import { classCreate, getTeachers, getGroups } from '../actions'
+import { classCreate, getLocations, getTeachers, getGroups } from '../actions'
 
 function mapStateToProps(state) {
   return {
+    groups: state.groups,
+    locations: state.locations,
     teachers: state.teachers,
-    groups: state.groups
+    groupsLoading: state.groupsLoading
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     classCreate: (dance_class) => {dispatch(classCreate(dance_class))},
+    getGroups: () => {dispatch(getGroups())},
+    getLocations: () => {dispatch(getLocations())},
     getTeachers: () => {dispatch(getTeachers())},
-    getGroups: () => {dispatch(getGroups())}
   }
 }
 

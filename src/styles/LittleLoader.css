@@ -1,10 +1,13 @@
+.little-loader-container {
+  flex: 1;
+  display: flex;
+}
+
 .little-loader {
-  display: inline-block;
   width: 10px;
   height: 10px;
-  position: relative;
-  border: 4px solid #21C9AB;
-  top: 50%;
+  border: 2px solid #21C9AB;
+  margin: auto;
   animation: loader 2s infinite ease;
 }
 
