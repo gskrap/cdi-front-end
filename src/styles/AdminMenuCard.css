@@ -1,29 +1,29 @@
 .admin-menu {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-menu > .top {
-    display: flex;
-    margin: 4px;
-    padding: 10px;
-    border-bottom: 1px solid #21C9AB;
+  display: flex;
+  margin: 4px;
+  padding: 10px;
+  border-bottom: 1px solid #21C9AB;
 }
 
 .top > button {
-    flex: 1;
-    background-color: white;
-    border: none;
-    width: 50%;
-    height: 24px;
-    border-radius: 5px;
+  flex: 1;
+  background-color: white;
+  border: none;
+  width: 50%;
+  height: 24px;
+  border-radius: 5px;
 }
 
 .admin-menu > .bottom {
-    flex: 1;
-    margin: 4px;
+  flex: 1;
+  margin: 4px;
 }
 
 button.true {
-    background-color: #EEEEEE;
+  background-color: #EEEEEE;
 }

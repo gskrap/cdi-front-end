@@ -1,16 +1,16 @@
 .user-home {
-    width: 530px;
-    margin: auto;
+  width: 530px;
+  margin: auto;
 }
 
 .btn-log {
-    width: 100%;
-    font-size: 14px;
+  width: 100%;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
-    .user-home {
-        width: 100%;
-        margin: 0px;
-    }
+  .user-home {
+    width: 100%;
+    margin: 0px;
+  }
 }

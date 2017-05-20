@@ -1,19 +1,19 @@
 .user-menu {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .user-menu > .top {
-    flex: 0;
-    margin: 4px;
-    padding-bottom: 12px;
+  flex: 0;
+  margin: 4px;
+  padding-bottom: 12px;
 }
 
 .user-menu > .bottom {
-    flex: 1;
-    margin: 4px;
+  flex: 1;
+  margin: 4px;
 }
 
 .warning {
-    color: red;
+  color: red;
 }

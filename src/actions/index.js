@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-const API = 'https://cdi-api.herokuapp.com'
+export const API = 'https://cdi-api.herokuapp.com'
+// export const API = 'http://localhost:3000'
+
+export const TIMEOUT = 700
+// export const TIMEOUT = 0
 
 export const updateAppLoading = (bool) => {
   return {
@@ -82,7 +86,7 @@ export const getPermissions = () => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 1000)
+  }, TIMEOUT)
 }
 
 export const logIn = (session) => dispatch => {
@@ -101,7 +105,7 @@ export const logIn = (session) => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 1000)
+  }, TIMEOUT)
 }
 
 export const register = (user) => dispatch => {
@@ -120,7 +124,7 @@ export const register = (user) => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 1000)
+  }, TIMEOUT)
 }
 
 export const logOut = () => dispatch => {
@@ -140,29 +144,29 @@ export const logOut = () => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 1000)
+  }, TIMEOUT)
 }
 
 export const getClasses = (_prefix) => dispatch => {
   dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
-  return axios.get(`https://cdi-api.herokuapp.com${prefix}/dance_classes`)
+  return axios.get(API + prefix + '/dance_classes')
     .then((response) => {
       setTimeout(() => {
         dispatch(updateClasses(response.data))
         dispatch(updateClassesLoading(false))
-      }, 1000)
+      }, TIMEOUT)
     })
 }
 
 export const getUsers = () => dispatch => {
   dispatch(updateUsersLoading(true))
-  return axios.get(`https://cdi-api.herokuapp.com/users`)
+  return axios.get(API + '/users')
     .then((response) => {
       setTimeout(() => {
         dispatch(updateUsers(response.data))
         dispatch(updateUsersLoading(false))
-      }, 1000)
+      }, TIMEOUT)
     })
 }
 
@@ -181,23 +185,23 @@ export const classCreate = (dance_class) => dispatch => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
-  }, 1000)
+  }, TIMEOUT)
 }
 
 export const getTeachers = () => dispatch => {
-  return axios.get('https://cdi-api.herokuapp.com/teachers')
+  return axios.get(API + '/teachers')
     .then((response) => {
       setTimeout(() => {
         dispatch(updateTeachers(response.data))
-      }, 1000)
+      }, TIMEOUT)
     })
 }
 
 export const getGroups = () => dispatch => {
-  return axios.get('https://cdi-api.herokuapp.com/groups')
+  return axios.get(API + '/groups')
     .then((response) => {
       setTimeout(() => {
         dispatch(updateGroups(response.data))
-      }, 1000)
+      }, TIMEOUT)
     })
 }

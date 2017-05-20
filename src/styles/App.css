@@ -4,51 +4,51 @@
 /*teal: #21C9AB*/
 
 @font-face {
-    font-family: 'varsity';
-    src: url('../fonts/varsity_regular.woff') format('woff2')
+  font-family: 'varsity';
+  src: url('../fonts/varsity_regular.woff') format('woff2')
 }
 
 html {
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    color: #63666A;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  color: #63666A;
 }
 
 body {
-    margin: 0px !important;
+  margin: 0px !important;
 }
 
 .app-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    position: relative;
-    /*top: 20%;*/
+  position: relative;
+  /*top: 20%;*/
 }
 
 .loading-animation-container {
-    position: absolute;
-    left: 1em;
-    right: 1em;
-    top: 220px;
+  position: absolute;
+  left: 1em;
+  right: 1em;
+  top: 220px;
 }
 
 button:focus {
-    outline:0;
+  outline:0;
 }
 
 .btn:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-primary {
-    height: 30px;
-    background-color: #21C9AB;
-    color: white;
-    border: none;
+  height: 30px;
+  background-color: #21C9AB;
+  color: white;
+  border: none;
 }
 
 textarea,
@@ -58,7 +58,7 @@ input[type="button"],
 input[type="submit"],
 select,
 .btn-primary {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 textarea,
@@ -66,6 +66,6 @@ input[type="text"],
 input[type="password"],
 input[type="button"],
 input[type="submit"] {
-    -webkit-appearance: none;
-    border-radius: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
 }

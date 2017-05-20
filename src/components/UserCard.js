@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
+import { API, TIMEOUT } from '../actions/index.js'
 
 import EmergencyContactCard from '../components/EmergencyContactCard'
 import UserGroupsForm from '../components/UserGroupsForm'
@@ -17,13 +18,13 @@ export default class UserCard extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     setTimeout(() => {
-      axios.get(`https://cdi-api.herokuapp.com/users/${this.props.user.id}/emergency_contacts`)
+      axios.get(API + '/users/' + this.props.user.id + '/emergency_contacts')
         .then((response) => {
           this.setState({emergencyContacts: response.data})
         })
-    }, 1000)
+    }, TIMEOUT)
   }
 
   render() {
@@ -43,7 +44,7 @@ export default class UserCard extends React.Component {
           <span className="text">{moment(this.user.date_of_birth).format("MMMM d, YYYY")}</span>
         </div>
         {(() => {
-          if (this.props.currentUser.role === 'admin') return <UserGroupsForm userGroups={this.props.user.groups}/>
+          if (this.props.currentUser.role === 'admin') return <UserGroupsForm userId={this.user.id}/>
         })()}
         <div className='emergency-contact-list'>
           <h3>Emergency Contacts</h3>
@@ -56,7 +57,6 @@ export default class UserCard extends React.Component {
               return (
                 this.state.emergencyContacts.map((e) => {
                   return <EmergencyContactCard key={e.id} contact={e}/>
-                  // return <div key={e.id}>{e.first_name}</div>
                 })
               )
           })()}
