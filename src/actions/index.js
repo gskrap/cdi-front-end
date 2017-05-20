@@ -20,6 +20,13 @@ export const updateClassesLoading = (bool) => {
   }
 }
 
+export const updateLocationsLoading = (bool) => {
+  return {
+    type: 'UPDATE_LOCATIONS_LOADING',
+    bool
+  }
+}
+
 export const updateUsersLoading = (bool) => {
   return {
     type: 'UPDATE_USERS_LOADING',
@@ -31,6 +38,13 @@ export const updateClasses = (classes) => {
   return {
     type: 'UPDATE_CLASSES',
     classes
+  }
+}
+
+export const updateLocations = (locations) => {
+  return {
+    type: 'UPDATE_LOCATIONS',
+    locations
   }
 }
 
@@ -159,6 +173,16 @@ export const getClasses = (_prefix) => dispatch => {
     })
 }
 
+export const getLocations = () => dispatch => {
+  return axios.get(API + '/locations')
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateLocations(response.data))
+        dispatch(updateLocationsLoading(false))
+      }, TIMEOUT)
+    })
+}
+
 export const getUsers = () => dispatch => {
   dispatch(updateUsersLoading(true))
   return axios.get(API + '/users')
@@ -184,6 +208,22 @@ export const classCreate = (dance_class) => dispatch => {
       .catch(function (error) {
         console.log(error)
         dispatch(updateAppLoading(false))
+      })
+  }, TIMEOUT)
+}
+
+export const locationCreate = (location) => dispatch => {
+  setTimeout(() => {
+    return axios({
+      method: 'post',
+      url: API + '/locations',
+      data: {location}
+    })
+      .then(() => {
+        dispatch(getLocations())
+      })
+      .catch(function (error) {
+        console.log(error)
       })
   }, TIMEOUT)
 }

@@ -13,15 +13,19 @@ function configureStore(initialState) {
 }
 
 const store = configureStore({
-  appLoading: false,
-  classesLoading: false,
-  usersLoading: false,
   loggedIn: false,
   currentUser: null,
-  users: [],
+
+  appLoading: false,
+  classesLoading: false,
+  locationsLoading: true,
+  usersLoading: false,
+
   classes: [],
-  teachers: [],
-  groups: []
+  groups: [],
+  locations: [],
+  users: [],
+  teachers: []
 })
 
 export { store }
