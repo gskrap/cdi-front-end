@@ -1,6 +1,3 @@
-.rdt {
-  position: relative;
-}
 .rdtPicker {
   display: none;
   position: absolute;
@@ -205,4 +202,11 @@ td.rdtYear:hover {
   width: 100%;
   font-size: 1.2em;
   margin-top: 37px;
+}
+
+@media (max-width: 768px) {
+  .rdtPicker {
+    left: 0;
+    width: 100%;
+  }
 }

@@ -26,11 +26,13 @@ export default class ClassCreateForm extends React.Component {
       name: '',
       teacher_id: -1,
       location_id: -1,
-      start_time: moment().roundNext15Min()
+      start_time: moment().roundNext15Min(),
+      end_time: moment().roundNext15Min(),
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleDateChange = this.handleDateChange.bind(this)
+    this.handleStartTimeChange = this.handleStartTimeChange.bind(this)
+    this.handleEndTimeChange = this.handleEndTimeChange.bind(this)
   }
 
   componentDidMount() {
@@ -62,6 +64,7 @@ export default class ClassCreateForm extends React.Component {
       teacher_id: -1,
       location_id: -1,
       start_time: moment().roundNext15Min(),
+      end_time: moment().roundNext15Min(),
     })
     this.setState(checks)
   }
@@ -74,8 +77,12 @@ export default class ClassCreateForm extends React.Component {
     this.setState({[name]: value})
   }
 
-  handleDateChange(date) {
-    this.setState({start_time: date})
+  handleStartTimeChange(date) {
+    this.setState({start_time: date, end_time: date})
+  }
+
+  handleEndTimeChange(date) {
+    this.setState({end_time: date})
   }
 
   renderCheckBoxes() {
@@ -118,12 +125,28 @@ export default class ClassCreateForm extends React.Component {
           <div className='check-row'>
             {this.renderCheckBoxes()}
           </div>
-          <Datetime
-            value={this.state.start_time}
-            dateFormat={'dddd, MM/DD'}
-            timeConstraints = {{minutes: {step: 15}}}
-            onChange={this.handleDateChange}
-            closeOnSelect={true}/>
+          <div className='date-time-pickers'>
+            <Datetime
+              value={this.state.start_time}
+              dateFormat={'dddd, MM/DD'}
+              timeFormat={false}
+              timeConstraints = {{minutes: {step: 15}}}
+              onChange={this.handleStartTimeChange}
+              closeOnSelect={true}/>
+            <Datetime
+              value={this.state.start_time}
+              dateFormat={false}
+              timeConstraints = {{minutes: {step: 15}}}
+              onChange={this.handleStartTimeChange}
+              closeOnSelect={true}/>
+            <span>-</span>
+            <Datetime
+              value={this.state.end_time}
+              dateFormat={false}
+              timeConstraints = {{minutes: {step: 15}}}
+              onChange={this.handleEndTimeChange}
+              closeOnSelect={true}/>
+          </div>
           <input className='btn btn-primary' type='submit' value='Submit'/><br/>
         </form>
       </div>
