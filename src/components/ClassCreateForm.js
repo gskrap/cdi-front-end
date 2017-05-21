@@ -78,6 +78,26 @@ export default class ClassCreateForm extends React.Component {
     this.setState({start_time: date})
   }
 
+  renderCheckBoxes() {
+    return (
+      this.props.groupsLoading ?
+        <LittleLoader/> :
+        this.props.groups.map((g) => {
+          return (
+            <div key={g.id} className='sub'>
+              <span>{g.name}</span>
+              <div className='check-container'>
+                <input type='checkbox'
+                  name={'for_group_id_' + g.id}
+                  checked={this.state['for_group_id_' + g.id] ? this.state['for_group_id_' + g.id] : false}
+                  onChange={this.handleInputChange}/>
+              </div>
+            </div>
+          )
+        })
+    )
+  }
+
   render() {
     return (
       <div className='class-create-form-container'>
@@ -96,31 +116,11 @@ export default class ClassCreateForm extends React.Component {
             })}
           </select>
           <div className='check-row'>
-            {(() => {
-              if (this.props.groupsLoading) {
-                return <LittleLoader/>
-              } else {
-                return (
-                  this.props.groups.map((g) => {
-                    return (
-                      <div key={g.id} className="sub">
-                        <span>{g.name}</span>
-                        <div className="check-container">
-                          <input type="checkbox"
-                            name={'for_group_id_' + g.id}
-                            checked={this.state['for_group_id_' + g.id] ? this.state['for_group_id_' + g.id] : false}
-                            onChange={this.handleInputChange}/>
-                        </div>
-                      </div>
-                    )
-                  })
-                )
-              }
-            })()}
+            {this.renderCheckBoxes()}
           </div>
           <Datetime
             value={this.state.start_time}
-            dateFormat={"dddd, MM/DD"}
+            dateFormat={'dddd, MM/DD'}
             timeConstraints = {{minutes: {step: 15}}}
             onChange={this.handleDateChange}
             closeOnSelect={true}/>

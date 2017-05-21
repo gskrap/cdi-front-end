@@ -8,8 +8,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps() {
-  return {
-  }
+  return {}
 }
 
 let UserHomeContainer = connect(mapStateToProps, mapDispatchToProps)(UserHome)

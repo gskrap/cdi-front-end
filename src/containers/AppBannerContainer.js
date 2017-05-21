@@ -5,7 +5,7 @@ import { logOut } from '../actions'
 function mapStateToProps(state) {
   return {
     loggedIn: state.loggedIn,
-    user: state.currentUser
+    user: state.currentUser,
   }
 }
 

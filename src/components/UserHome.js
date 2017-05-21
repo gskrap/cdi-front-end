@@ -5,16 +5,18 @@ import UserMenuCard from './UserMenuCard'
 import '../styles/UserHome.css'
 
 export default class UserHome extends React.Component {
+  renderView() {
+    return (
+      this.props.user.role == 'admin' ?
+        <AdminMenuCard/> :
+        <UserMenuCard user={this.props.user}/>
+    )
+  }
+
   render() {
     return (
       <div className='user-home'>
-        {(() => {
-          if (this.props.user.role === 'admin') {
-            return <AdminMenuCard/>
-          } else {
-            return <UserMenuCard user={this.props.user}/>
-          }
-        })()}
+        {this.renderView()}
       </div>
     )
   }

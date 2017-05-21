@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminScheduleContainer from '../containers/AdminScheduleContainer'
+import UserScheduleContainer from '../containers/UserScheduleContainer'
 import LocationListContainer from '../containers/LocationListContainer'
 import UserListContainer from '../containers/UserListContainer'
 import ClassCreateFormContainer from '../containers/ClassCreateFormContainer'
@@ -22,6 +22,19 @@ export default class AdminMenuCard extends React.Component {
     return this.state.view === view
   }
 
+  renderView(view) {
+    switch(view) {
+      case 'allClasses':
+        return <UserScheduleContainer/>
+      case 'createClass':
+        return <ClassCreateFormContainer/>
+      case 'locations':
+        return <LocationListContainer/>
+      case 'editUsers':
+        return <UserListContainer/>
+    }
+  }
+
   render() {
     return (
       <div>
@@ -33,16 +46,7 @@ export default class AdminMenuCard extends React.Component {
             <button className={this.selected('editUsers')} onClick={() => this.setView('editUsers')}>Edit Users</button>
           </div>
           <div className='bottom'>
-            {(() => {
-              if (this.state.view == 'allClasses')
-                return <AdminScheduleContainer/>
-              else if (this.state.view == 'createClass')
-                return <ClassCreateFormContainer/>
-              else if (this.state.view == 'locations')
-                return <LocationListContainer/>
-              else if (this.state.view == 'editUsers')
-                return <UserListContainer/>
-            })()}
+            {this.renderView(this.state.view)}
           </div>
         </div>
       </div>

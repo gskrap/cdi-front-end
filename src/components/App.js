@@ -17,20 +17,22 @@ export default class App extends React.Component {
     }
   }
 
+  renderView() {
+    return (
+      this.props.appLoading ?
+        <LoadingAnimation/> :
+      this.props.loggedIn ?
+        <UserHomeContainer/> :
+        <FormToggle/>
+    )
+  }
+
   render() {
     return (
       <div className='app-container'>
         <AppBannerContainer />
         <main>
-          {(() => {
-            if (this.props.appLoading) {
-              return <LoadingAnimation/>
-            } else if (this.props.loggedIn) {
-              return <UserHomeContainer/>
-            } else {
-              return <FormToggle/>
-            }
-          })()}
+          {this.renderView()}
         </main>
       </div>
     )

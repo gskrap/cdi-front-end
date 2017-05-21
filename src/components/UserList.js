@@ -17,28 +17,37 @@ export default class UserList extends React.Component {
     this.props.getUsers()
   }
 
+  renderUserCard() {
+    return (
+      <div>
+        <button className='btn btn-primary' onClick={() => this.setState({showUser: false})}>back to list</button>
+        <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
+      </div>
+    )
+  }
+
+  renderUserList() {
+    return (
+      <div className='user-list'>
+        {this.props.users.map((u) => {
+          return (
+            <div onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
+              <span className='left'>{u.first_name}&nbsp;</span>
+              <span className='right'>{u.last_name}</span>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
   render() {
-    if (this.props.usersLoading)
-      return <LoadingAnimation/>
-    else if (this.state.showUser)
-      return (
-        <div>
-          <button className='btn btn-primary' onClick={() => this.setState({showUser: false})}>back to list</button>
-          <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
-        </div>
-      )
-    else
-      return (
-        <div className='user-list'>
-          {this.props.users.map((u) => {
-            return (
-              <div onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
-                <span className='left'>{u.first_name}&nbsp;</span>
-                <span className='right'>{u.last_name}</span>
-              </div>
-            )
-          })}
-        </div>
-      )
+    return (
+      this.props.usersLoading ?
+        <LoadingAnimation/> :
+      this.state.showUser ?
+        this.renderUserCard() :
+        this.renderUserList()
+    )
   }
 }

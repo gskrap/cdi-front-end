@@ -73,31 +73,37 @@ export default class UserGroupsForm extends React.Component {
     this.setState({values: values})
   }
 
-  render() {
-    if(this.state.showUserGroupsForm) {
-      return (
-        <form className='form group-form' onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <div className='row'>
-              {this.state.groups.map((g) => {
-                return (
-                  <div className={'sub'} key={g.id}>
-                    <input type="checkbox" checked={this.state.values[g.id]} onChange={() => {this.checkSelection(g.id)}}/>
-                    <div>{g.name}</div>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-          <input className='btn btn-primary btn-group' type='submit' value={this.state.saving ? 'Saving' : 'Save Groups'}/>
-        </form>
-      )
-    } else {
-      return (
-        <div className={'btn-container'}>
-          <button className='btn-primary btn-group' onClick={() => {this.setState({showUserGroupsForm: true})}}>Show / Edit Groups</button>
+  renderForm() {
+    return (
+      <form className='form group-form' onSubmit={this.handleSubmit.bind(this)}>
+        <div className='row'>
+          {this.state.groups.map((g) => {
+            return (
+              <div className={'sub'} key={g.id}>
+                <input type="checkbox" checked={this.state.values[g.id]} onChange={() => {this.checkSelection(g.id)}}/>
+                <div>{g.name}</div>
+              </div>
+            )
+          })}
         </div>
-      )
-    }
+        <input className='btn btn-primary btn-group' type='submit' value={this.state.saving ? 'Saving' : 'Save Groups'}/>
+      </form>
+    )
+  }
+
+  renderShowFormButton() {
+    return (
+      <div className={'btn-container'}>
+        <button className='btn-primary btn-group' onClick={() => {this.setState({showUserGroupsForm: true})}}>Show / Edit Groups</button>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      this.state.showUserGroupsForm ?
+        this.renderForm() :
+        this.renderShowFormButton()
+    )
   }
 }

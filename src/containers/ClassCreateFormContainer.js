@@ -7,7 +7,7 @@ function mapStateToProps(state) {
     groups: state.groups,
     locations: state.locations,
     teachers: state.teachers,
-    groupsLoading: state.groupsLoading
+    groupsLoading: state.groupsLoading,
   }
 }
 

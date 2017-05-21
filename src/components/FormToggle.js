@@ -12,6 +12,14 @@ export default class FormToggle extends React.Component {
     }
   }
 
+  renderForm() {
+    return (
+      this.state.showRegister ?
+        <RegisterFormContainer /> :
+        <LogInFormContainer />
+    )
+  }
+
   render() {
     return (
       <div className='form-toggle'>
@@ -20,12 +28,7 @@ export default class FormToggle extends React.Component {
           <button className={'btn btn-toggle ' + !this.state.showRegister} onClick={() => this.setState({showRegister: false})}><span className='vertical-text'>Log In</span></button>
         </div>
         <div className='login-form-container form-container'>
-        {(() => {
-          if (this.state.showRegister)
-            return <RegisterFormContainer />
-          else
-            return <LogInFormContainer />
-        })()}
+          {this.renderForm()}
         </div>
       </div>
     )

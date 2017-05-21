@@ -1,19 +1,28 @@
 import React from 'react'
 import LoadingAnimation from './LoadingAnimation'
-import ClassList from './ClassList'
-
-import '../styles/Schedule.css'
+import ClassCard from './ClassCard'
 
 export default class UserSchedule extends React.Component {
   componentDidMount() {
-    this.props.getClasses(`/users/${this.props.user.id}`)
+    let prefix = this.props.user.role == 'admin' ? '' : `/users/${this.props.user.id}`
+    this.props.getClasses(prefix)
+  }
+
+  renderClassList() {
+    return (
+      <div className='class-list'>
+        {this.props.classes.map((c) => {
+          return <ClassCard key={c.id} class={c}/>
+        })}
+      </div>
+    )
   }
 
   render() {
-    if (this.props.classesLoading) {
-      return <LoadingAnimation/>
-    } else {
-      return <ClassList classes={this.props.classes}/>
-    }
+    return (
+      this.props.classesLoading ?
+        <LoadingAnimation/> :
+        this.renderClassList()
+    )
   }
 }

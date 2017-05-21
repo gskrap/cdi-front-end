@@ -8,7 +8,7 @@ export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      dateOfBirth: moment("2000", "YYYY"),
+      dateOfBirth: moment('2000', 'YYYY'),
       alumni: false
     }
   }
@@ -19,7 +19,7 @@ export default class RegisterForm extends React.Component {
     for (const field in this.refs) {
       user[field] = this.refs[field].value
     }
-    user['date_of_birth'] = this.state.dateOfBirth.format("YYYY-MM-DD")
+    user['date_of_birth'] = this.state.dateOfBirth.format('YYYY-MM-DD')
     user['alumni'] = this.state.alumni
     this.props.register(user)
   }
@@ -46,18 +46,18 @@ export default class RegisterForm extends React.Component {
               onChange={this.handleDateChange.bind(this)}
               inputProps={{readOnly:true}}
               timeFormat={false} closeOnSelect={true}
-              viewMode="years"/>
+              viewMode='years'/>
           </div>
-          <div className="sub small">
+          <div className='sub small'>
             <span>Alumni?</span>
-            <div className="check-container"><input type="checkbox" ref="alumni" checked={this.state.alumni} onClick={this.toggleAlumni.bind(this)}/></div>
+            <div className='check-container'><input type='checkbox' ref='alumni' checked={this.state.alumni} onClick={this.toggleAlumni.bind(this)}/></div>
           </div>
-          <div className="sub">
+          <div className='sub'>
             <span>Gender</span>
-            <select ref='gender' defaultValue="female" className="gender-list">
-              <option value="not_specified">Other</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
+            <select ref='gender' defaultValue='female' className='gender-list'>
+              <option value='not_specified'>Other</option>
+              <option value='female'>Female</option>
+              <option value='male'>Male</option>
             </select>
           </div>
         </div>

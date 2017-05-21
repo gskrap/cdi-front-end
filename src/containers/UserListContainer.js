@@ -6,7 +6,7 @@ function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
     users: state.users,
-    usersLoading: state.usersLoading
+    usersLoading: state.usersLoading,
   }
 }
 

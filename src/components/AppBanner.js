@@ -15,9 +15,7 @@ export default class AppBanner extends React.Component {
                 <div className="split log-out"><span onClick={this.props.logOut}>log out</span></div>
               </div>
             )
-          } else {
-            return <div>CDI 2017</div>
-          }
+          } else return <div>CDI 2017</div>
         })()}
       </div>
     )
