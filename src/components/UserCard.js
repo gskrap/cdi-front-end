@@ -41,7 +41,7 @@ export default class UserCard extends React.Component {
         </div>
         <div className="user-row">
           <span className="icon"><i className="icon fa fa-birthday-cake" aria-hidden="true"/></span>
-          <span className="text">{moment(this.user.date_of_birth).format("MMMM d, YYYY")}</span>
+          <span className="text">{moment(this.user.date_of_birth).utc().format("MMMM D, YYYY")}</span>
         </div>
         {(() => {
           if (this.props.currentUser.role === 'admin') return <UserGroupsForm userId={this.user.id}/>

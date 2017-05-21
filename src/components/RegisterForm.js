@@ -19,7 +19,7 @@ export default class RegisterForm extends React.Component {
     for (const field in this.refs) {
       user[field] = this.refs[field].value
     }
-    user['date_of_birth'] = this.state.dateOfBirth.utc().format()
+    user['date_of_birth'] = this.state.dateOfBirth.format("YYYY-MM-DD")
     user['alumni'] = this.state.alumni
     this.props.register(user)
   }

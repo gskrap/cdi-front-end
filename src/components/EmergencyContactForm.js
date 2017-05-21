@@ -46,11 +46,11 @@ export default class EmergencyContactForm extends React.Component {
           <div className='emergency-contact-form-container'>
             <h1>Emergency Contact</h1>
             <form className='form' onSubmit={this.handleSubmit.bind(this)}>
-              <input type='text' ref='first_name' placeholder='first name'/><br/>
-              <input type='text' ref='last_name' placeholder='last name'/><br/>
-              <input type='text' ref='relationship' placeholder='relation'/><br/>
-              <input type='text' ref='email' placeholder='email'/><br/>
-              <input type='text' ref='phone' placeholder='phone'/><br/>
+              <input type='text' ref='first_name' placeholder='First Name'/><br/>
+              <input type='text' ref='last_name' placeholder='Last Name'/><br/>
+              <input type='text' ref='relationship' placeholder='Relation'/><br/>
+              <input type='text' ref='email' placeholder='Email'/><br/>
+              <input type='text' ref='phone' placeholder='Phone'/><br/>
               <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
             </form>
           </div>
