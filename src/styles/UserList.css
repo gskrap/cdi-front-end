@@ -1,23 +1,9 @@
 .user-list {
-  border-radius: 5px;
-}
-
-.user-list > h1 {
-  margin: 0;
-  padding: 12px;
-}
-
-.user-list > div {
-  font-size: 26px;
-  display: flex
-}
-
-.user-list > div > .left {
-  flex: 1;
-  text-align: right;
-}
-
-.user-list > div > .right {
-  flex: 1;
   text-align: left;
+}
+
+.user-list-user {
+  font-size: 26px;
+  padding: 10px 0px 10px 30px;
+  border-bottom: 1px solid #EEEEEE;
 }

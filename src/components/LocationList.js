@@ -43,7 +43,12 @@ export default class LocationList extends React.Component {
           </div>
           <div className='location-list'>
             {this.props.locations.map((l) => {
-              return <div key={l.id}>{l.name}</div>
+              return (
+                <div className='location-list-location' key={l.id}>
+                  <span>{l.name}</span>
+                  <div className='location-class-count'>{l.dance_classes_count}</div>
+                </div>
+              )
             })}
           </div>
         </div>

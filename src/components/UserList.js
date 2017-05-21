@@ -31,9 +31,8 @@ export default class UserList extends React.Component {
       <div className='user-list'>
         {this.props.users.map((u) => {
           return (
-            <div onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
-              <span className='left'>{u.first_name}&nbsp;</span>
-              <span className='right'>{u.last_name}</span>
+            <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
+              {u.first_name + ' ' + u.last_name}
             </div>
           )
         })}
