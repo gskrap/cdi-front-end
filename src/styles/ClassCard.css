@@ -1,8 +1,10 @@
 .class-card {
   margin-bottom: 2px;
-  border-bottom: 1px solid #EEEEEE;
-  height: 200px;
   padding: 10px;
+}
+
+.class-card:nth-child(odd) {
+  background-color: #FBFFFB;
 }
 
 .class-card > .half {
@@ -13,17 +15,39 @@
 
 .class-card > .half > .title {
   margin: 1px;
-  border-right: 1px solid #21C9AB;
   border-bottom: 1px solid #21C9AB;
   padding-bottom: 5px;
 }
 
-.class-card > .half > .teacher, .location, .date {
+.class-card > .half > .teacher, .location {
   font-size: 12px;
-  margin: 5px 0px 0px 0px;
+  margin: 0px 0px 0px -16px;
+}
+
+.class-card > .half > .date {
+  font-size: 12px;
+  margin: 0px;
 }
 
 .class-card > .half > .group {
-  font-size: 12px;
-  margin: 1px;
+  font-size: 10px;
+  margin: 0px;
+}
+
+
+.parallelogram {
+	width: 150px;
+	-webkit-transform: skew(-20deg);
+	   -moz-transform: skew(-20deg);
+	     -o-transform: skew(-20deg);
+	background: #21C9AB;
+}
+
+.parallelogram > div {
+  color: white;
+  font-size: 14px;
+  padding-top: 4px;
+  -webkit-transform: skew(20deg);
+     -moz-transform: skew(20deg);
+       -o-transform: skew(20deg);
 }

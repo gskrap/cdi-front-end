@@ -42,7 +42,6 @@ export default class EmergencyContactForm extends React.Component {
     if (this.state.showForm)
       return (
         <div>
-          <h2 className="warning">please provide emergency contact information</h2>
           <div className='emergency-contact-form-container'>
             <h1>Emergency Contact</h1>
             <form className='form' onSubmit={this.handleSubmit.bind(this)}>
@@ -54,6 +53,7 @@ export default class EmergencyContactForm extends React.Component {
               <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
             </form>
           </div>
+          <h2 className="warning">please provide emergency contact information</h2>
         </div>
       )
     else return null
