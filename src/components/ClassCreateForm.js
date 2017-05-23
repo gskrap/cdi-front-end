@@ -6,7 +6,7 @@ import LittleLoader from './LittleLoader'
 import '../styles/ClassCreateForm.css'
 import '../styles/Datetime.css'
 
-moment.fn.roundNext15Min = function () {
+moment.fn.roundNext15Min = () => {
   let intervals = Math.floor(this.minutes() / 15)
   if (this.minutes() % 15 !== 0)
     intervals++

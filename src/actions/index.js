@@ -103,7 +103,7 @@ export const getPermissions = () => dispatch => {
         dispatch(updateLoggedIn(response.data.loggedIn))
         dispatch(updateAppLoading(false))
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
@@ -122,7 +122,7 @@ export const logIn = (session) => dispatch => {
         window.localStorage.setItem('auth_token', response.data.auth_token)
         dispatch(getPermissions())
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
@@ -141,7 +141,7 @@ export const register = (user) => dispatch => {
         window.localStorage.setItem('auth_token', response.data.auth_token)
         dispatch(getPermissions())
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
@@ -161,7 +161,7 @@ export const logOut = () => dispatch => {
         dispatch(updateCurrentUser(null))
         dispatch(updateAppLoading(false))
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
@@ -209,7 +209,7 @@ export const classCreate = (dance_class) => dispatch => {
       .then(() => {
         dispatch(updateAppLoading(false))
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         dispatch(updateAppLoading(false))
       })
@@ -226,7 +226,7 @@ export const locationCreate = (location) => dispatch => {
       .then(() => {
         dispatch(getLocations())
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
       })
   }, TIMEOUT)

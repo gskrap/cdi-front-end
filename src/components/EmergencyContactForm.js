@@ -30,10 +30,10 @@ export default class EmergencyContactForm extends React.Component {
       url: `https://cdi-api.herokuapp.com/users/${this.props.userId}/emergency_contacts`,
       data: {emergency_contact}
     })
-      .then(function () {
+      .then(() => {
         self.setState({showForm: false})
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
       })
   }
