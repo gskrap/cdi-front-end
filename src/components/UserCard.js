@@ -5,6 +5,7 @@ import { API, TIMEOUT } from '../actions/index.js'
 
 import EmergencyContactCard from '../components/EmergencyContactCard'
 import UserGroupsForm from '../components/UserGroupsForm'
+import UserRoleForm from '../components/UserRoleForm'
 import LittleLoader from '../components/LittleLoader'
 
 import '../styles/UserCard.css'
@@ -31,6 +32,13 @@ export default class UserCard extends React.Component {
     return (
       this.props.currentUser.role == 'admin' ?
         <UserGroupsForm userId={this.user.id}/> : null
+    )
+  }
+
+  renderUserRoleForm() {
+    return (
+      this.props.currentUser.role == 'admin' ?
+        <UserRoleForm user={this.user}/> : null
     )
   }
 
@@ -62,7 +70,8 @@ export default class UserCard extends React.Component {
           <span className='icon'><i className='icon fa fa-birthday-cake' aria-hidden='true'/></span>
           <span className='text'>{moment(this.user.date_of_birth).utc().format('MMMM D, YYYY')}</span>
         </div>
-          {this.renderUserGroupsForm()}
+        {this.renderUserGroupsForm()}
+        {this.renderUserRoleForm()}
         <div className='emergency-contact-list'>
           <h3>Emergency Contacts</h3>
           {this.renderEmergencyContacts()}

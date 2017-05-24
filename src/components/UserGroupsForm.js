@@ -8,10 +8,10 @@ export default class UserGroupsForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      showUserGroupsForm: false,
       groups: [],
       values: [],
       saving: false,
-      showUserGroupsForm: false,
       userGroupIds: []
     }
   }

@@ -71,11 +71,25 @@ input[type="checkbox"] {
 }
 
 .group-form {
-  border-radius: 0px;
-  border-top: 1px solid #21C9AB;
-  border-bottom: 1px solid #21C9AB;
+  background: #EEEEEE;
+  margin: 4px;
 }
 
 .btn-group {
   margin-top: 12px;
+  width: 180px;
+}
+
+.role-form {
+  background-color: #EEEEEE;
+  margin: 4px;
+}
+
+.role-select {
+  margin: 0;
+  text-align: center;
+  text-align-last: center;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

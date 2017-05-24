@@ -8,7 +8,7 @@ export default class ClassCard extends React.Component {
     return (
       <div className='class-card'>
         <div className='half'>
-          <div className='title parallelogram'><div>{this.props.class.name}</div></div>
+          <div className='title'><div>{this.props.class.name}</div></div>
           <p className='teacher'>{this.props.class.teacher.first_name + ' ' + this.props.class.teacher.last_name}</p>
           <p className='location'>{this.props.class.location ? this.props.class.location.name : 'No Location'}</p>
         </div>
