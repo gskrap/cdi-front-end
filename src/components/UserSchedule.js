@@ -1,10 +1,10 @@
 import React from 'react'
 import LoadingAnimation from './LoadingAnimation'
-import ClassCard from './ClassCard'
+import ClassCardContainer from '../containers/ClassCardContainer'
 
 export default class UserSchedule extends React.Component {
   componentDidMount() {
-    let prefix = this.props.user.role == 'admin' ? '' : `/users/${this.props.user.id}`
+    let prefix = ['admin', 'work_study'].includes(this.props.user.role) ? '' : `/users/${this.props.user.id}`
     this.props.getClasses(prefix)
   }
 
@@ -12,7 +12,7 @@ export default class UserSchedule extends React.Component {
     return (
       <div className='class-list'>
         {this.props.classes.map((c) => {
-          return <ClassCard key={c.id} class={c}/>
+          return <ClassCardContainer key={c.id} class={c}/>
         })}
       </div>
     )

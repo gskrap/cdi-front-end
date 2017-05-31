@@ -169,6 +169,7 @@ export const logOut = () => dispatch => {
 }
 
 export const getClasses = (_prefix) => dispatch => {
+  dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
   return axios.get(API + prefix + '/dance_classes')
     .then((response) => {
@@ -176,6 +177,19 @@ export const getClasses = (_prefix) => dispatch => {
         dispatch(updateClasses(response.data))
         dispatch(updateClassesLoading(false))
       }, TIMEOUT)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+export const deleteClass = (id) => dispatch => {
+  return axios.delete(API + '/dance_classes/' + id)
+    .then(() => {
+      dispatch(getClasses())
+    })
+    .catch((error) => {
+      console.log(error)
     })
 }
 
@@ -187,6 +201,9 @@ export const getLocations = () => dispatch => {
         dispatch(updateLocationsLoading(false))
       }, TIMEOUT)
     })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 export const getUsers = () => dispatch => {
@@ -196,6 +213,9 @@ export const getUsers = () => dispatch => {
         dispatch(updateUsers(response.data))
         dispatch(updateUsersLoading(false))
       }, TIMEOUT)
+    })
+    .catch((error) => {
+      console.log(error)
     })
 }
 

@@ -1,36 +1,5 @@
-.little-loader-container {
-  flex: 1;
-  display: flex;
-}
-
 .little-loader {
-  width: 10px;
-  height: 10px;
-  border: 2px solid #21C9AB;
+  flex: 1;
   margin: auto;
-  animation: loader 2s infinite ease;
-}
-
-.little-loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #21C9AB;
-  animation: loader-inner 2s infinite ease-in;
-}
-
-@keyframes little-loader {
-  0% {transform: rotate(0deg);}
-  25% {transform: rotate(180deg);}
-  50% {transform: rotate(180deg);}
-  75% {transform: rotate(360deg);}
-  100% {transform: rotate(360deg);}
-}
-
-@keyframes little-loader-inner {
-  0% {height: 0%;}
-  25% {height: 0%;}
-  50% {height: 100%;}
-  75% {height: 100%;}
-  100% {height: 0%;}
+  font-size: 8px;
 }

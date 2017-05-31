@@ -4,6 +4,17 @@ import moment from 'moment'
 import '../styles/ClassCard.css'
 
 export default class ClassCard extends React.Component {
+  renderEditButtons() {
+    if (this.props.user.role == 'admin') {
+      return (
+        <div className='small'>
+          <i className="fa fa-trash" onClick={() => this.props.deleteClass(this.props.class.id)} aria-hidden="true"></i>
+          <i className="fa fa-pencil" aria-hidden="true"></i>
+        </div>
+      )
+    }
+  }
+  
   render() {
     return (
       <div className='class-card'>
@@ -22,6 +33,7 @@ export default class ClassCard extends React.Component {
             return <p className='group' key={g.id}>{g.name + (i < this.props.class.groups.length - 1 ? ',\u00A0' : '')}</p>
           })}
         </div>
+        {this.renderEditButtons()}
       </div>
     )
   }
