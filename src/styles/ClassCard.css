@@ -13,10 +13,17 @@
   width: 49%;
 }
 
-.class-card > .half > .title {
+.title {
   margin: 1px;
-  padding-bottom: 5px;
+  padding: 5px 0px;
   background: #21C9AB;
+  color: white;
+  font-size: 14px;
+}
+
+.title.date-top {
+  background: transparent;
+  color: #63666A;
 }
 
 .class-card > .half > .teacher, .location {
@@ -31,10 +38,18 @@
 .class-card > .half > .group {
   font-size: 10px;
   margin: 0px;
+  display: inline-block;
 }
 
-.title > div {
-  color: white;
-  font-size: 14px;
-  padding-top: 4px;
+.parallelogram {
+  border-radius: 7px;
+  -webkit-transform: skew(-20deg);
+  -moz-transform: skew(-20deg);
+  -o-transform: skew(-20deg);
+}
+
+.parallelogram > div {
+  -webkit-transform: skew(20deg);
+  -moz-transform: skew(20deg);
+  -o-transform: skew(20deg);
 }

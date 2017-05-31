@@ -53,7 +53,7 @@ export default class EmergencyContactForm extends React.Component {
               <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
             </form>
           </div>
-          <h2 className="warning">please provide emergency contact information</h2>
+          <h2 className="warning">Please provide emergency contact information&nbsp;<i className="fa fa-hand-o-up" aria-hidden="true"></i></h2>
         </div>
       )
     else return null

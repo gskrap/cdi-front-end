@@ -93,3 +93,23 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+.form-select {
+  margin: 10px;
+  display: inline-block;
+  font-size: 25px;
+  border-bottom: 3px solid #EEEEEE;
+}
+
+.form-select:hover {
+  cursor: pointer;
+}
+
+.form-select.true {
+  border-bottom: 3px solid #21C9AB;
+}
+
+.error {
+  margin-top: 8px;
+  color: red;
+}

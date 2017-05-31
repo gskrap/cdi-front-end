@@ -24,6 +24,10 @@ body {
   flex-direction: column;
 }
 
+.inline {
+  display: inline-block;
+}
+
 main {
   position: relative;
   /*top: 20%;*/

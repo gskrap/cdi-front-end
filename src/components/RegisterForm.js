@@ -8,6 +8,7 @@ export default class RegisterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      student: true,
       dateOfBirth: moment('2000', 'YYYY'),
       alumni: false
     }
@@ -15,29 +16,30 @@ export default class RegisterForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    let user = {}
-    for (const field in this.refs) {
-      user[field] = this.refs[field].value
+    if (this.state.password == this.state.confirmPassword) {
+      let user = {}
+      for (const field in this.refs) {
+        user[field] = this.refs[field].value
+      }
+      user['date_of_birth'] = this.state.dateOfBirth.format('YYYY-MM-DD')
+      user['alumni'] = this.state.alumni
+      this.props.register(user)
+    } else {
+      this.setState({error: "Password must match"})
     }
-    user['date_of_birth'] = this.state.dateOfBirth.format('YYYY-MM-DD')
-    user['alumni'] = this.state.alumni
-    this.props.register(user)
   }
 
   handleDateChange(date) {
     this.setState({dateOfBirth: date})
   }
 
-  toggleAlumni() {
-    this.setState({alumni: !this.state.alumni})
+  renderError() {
+    if (this.state.error) {return <div className='error'>{this.state.error}</div>}
   }
 
-  render() {
-    return (
-      <form className='form' onSubmit={this.handleSubmit.bind(this)}>
-        <input type='text' autoCorrect='off' autoCapitalize='none' ref='username' placeholder='Username'/>
-        <input type='text' ref='first_name' placeholder='First Name'/>
-        <input type='text' ref='last_name' placeholder='Last Name'/>
+  renderStudentFields() {
+    if (this.state.student) {
+      return (
         <div className='row'>
           <div className="sub">
             <span>Date of Birth</span>
@@ -50,7 +52,7 @@ export default class RegisterForm extends React.Component {
           </div>
           <div className='sub small'>
             <span>Alumni?</span>
-            <div className='check-container'><input type='checkbox' ref='alumni' checked={this.state.alumni} onClick={this.toggleAlumni.bind(this)}/></div>
+            <div className='check-container'><input type='checkbox' checked={this.state.alumni} onChange={() => this.setState({alumni: !this.state.alumni})}/></div>
           </div>
           <div className='sub'>
             <span>Gender</span>
@@ -61,10 +63,24 @@ export default class RegisterForm extends React.Component {
             </select>
           </div>
         </div>
+      )
+    }
+  }
+
+  render() {
+    return (
+      <form className='form' onSubmit={this.handleSubmit.bind(this)}>
+        <div className={'form-select ' + this.state.student} onClick={() => this.setState({student: true})}>Student</div>
+        <div className={'form-select ' + !this.state.student} onClick={() => this.setState({student: false})}>Other</div>
         <input type='email' ref='email' placeholder='Email'/>
+        <input type='text' ref='first_name' placeholder='First Name'/>
+        <input type='text' ref='last_name' placeholder='Last Name'/>
+        {this.renderStudentFields()}
         <input type='text' ref='phone' placeholder='Phone Number'/>
-        <input type='password' ref='password' placeholder='Password'/>
+        <input onChange={(e) => this.setState({password: e.target.value})} type='password' ref='password' placeholder='Password'/>
+        <input onChange={(e) => this.setState({confirmPassword: e.target.value})} type='password' ref='password' placeholder='Confirm Password'/>
         <input className='btn btn-primary btn-log' type='submit' value='Submit'/>
+        {this.renderError()}
       </form>
     )
   }
