@@ -21,12 +21,15 @@ const store = configureStore({
   groupsLoading: true,
   locationsLoading: true,
   usersLoading: true,
+  classSaving: false,
 
   classes: [],
   groups: [],
   locations: [],
   users: [],
-  teachers: []
+  teachers: [],
+
+  adminView: 'allClasses'
 })
 
 export { store }

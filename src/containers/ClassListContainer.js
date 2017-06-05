@@ -1,4 +1,4 @@
-import UserSchedule from '../components/UserSchedule'
+import ClassList from '../components/ClassList'
 import { connect } from 'react-redux'
 import { getClasses } from '../actions'
 
@@ -16,5 +16,5 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-let UserScheduleContainer = connect(mapStateToProps, mapDispatchToProps)(UserSchedule)
-export default UserScheduleContainer
+let ClassListContainer = connect(mapStateToProps, mapDispatchToProps)(ClassList)
+export default ClassListContainer

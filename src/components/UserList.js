@@ -20,7 +20,7 @@ export default class UserList extends React.Component {
   renderUserCard() {
     return (
       <div>
-        <button className='btn btn-primary' onClick={() => this.setState({showUser: false})}>back to list</button>
+        <button className='btn btn-primary btn-group' onClick={() => this.setState({showUser: false})}>Back to List</button>
         <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
       </div>
     )

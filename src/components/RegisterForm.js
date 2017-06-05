@@ -25,7 +25,7 @@ export default class RegisterForm extends React.Component {
       user['alumni'] = this.state.alumni
       this.props.register(user)
     } else {
-      this.setState({error: "Password must match"})
+      this.setState({error: 'Password must match'})
     }
   }
 

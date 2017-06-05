@@ -50,6 +50,7 @@ export default class ClassCreateForm extends React.Component {
       }
     }
     dance_class['start_time'] = dance_class['start_time'].utc().format()
+    dance_class['end_time'] = dance_class['end_time'].utc().format()
     this.props.classCreate(dance_class)
     this.resetFormState()
   }

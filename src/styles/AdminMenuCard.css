@@ -18,6 +18,10 @@
   border-radius: 5px;
 }
 
+.top > button:hover {
+  cursor: pointer;
+}
+
 .admin-menu > .bottom {
   flex: 1;
   margin: 4px;

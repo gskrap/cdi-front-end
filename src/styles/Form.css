@@ -72,7 +72,7 @@ input[type="checkbox"] {
 
 .group-form {
   background: #EEEEEE;
-  margin: 4px;
+  margin-top: 6px;
 }
 
 .btn-group {
@@ -82,7 +82,7 @@ input[type="checkbox"] {
 
 .role-form {
   background-color: #EEEEEE;
-  margin: 4px;
+  margin-top: 6px;
 }
 
 .role-select {

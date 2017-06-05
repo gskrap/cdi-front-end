@@ -48,6 +48,14 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         loggedIn: action.bool
       })
+    case 'UPDATE_ADMIN_VIEW':
+      return Object.assign({}, state, {
+        adminView: action.view
+      })
+    case 'UPDATE_CLASS_SAVING':
+      return Object.assign({}, state, {
+        classSaving: action.bool
+      })
     default:
       return state
   }

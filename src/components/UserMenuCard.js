@@ -1,6 +1,6 @@
 import React from 'react'
 import EmergencyContactForm from './EmergencyContactForm'
-import UserScheduleContainer from '../containers/UserScheduleContainer'
+import ClassListContainer from '../containers/ClassListContainer'
 
 import '../styles/UserMenuCard.css'
 
@@ -13,7 +13,7 @@ export default class UserMenuCard extends React.Component {
             <EmergencyContactForm userId={this.props.user.id}/>
           </div>
           <div className='bottom'>
-            <UserScheduleContainer/>
+            <ClassListContainer/>
           </div>
         </div>
       </div>

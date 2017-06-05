@@ -90,6 +90,20 @@ export const updateLoggedIn = (bool) => {
   }
 }
 
+export const updateClassSaving = (bool) => {
+  return {
+    type: 'UPDATE_CLASS_SAVING',
+    bool
+  }
+}
+
+export const updateAdminView = (view) => {
+  return {
+    type: 'UPDATE_ADMIN_VIEW',
+    view
+  }
+}
+
 export const getPermissions = () => dispatch => {
   dispatch(updateAppLoading(true))
   setTimeout(() => {
@@ -169,7 +183,7 @@ export const logOut = () => dispatch => {
 }
 
 export const getClasses = (_prefix) => dispatch => {
-  dispatch(updateClassesLoading(true))
+  // dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
   return axios.get(API + prefix + '/dance_classes')
     .then((response) => {
@@ -226,12 +240,27 @@ export const classCreate = (dance_class) => dispatch => {
       url: API + '/dance_classes',
       data: {dance_class}
     })
+      // .then(() => {
+      // })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, TIMEOUT)
+}
+
+export const classUpdate = (dance_class) => dispatch => {
+  dispatch(updateClassSaving(true))
+  setTimeout(() => {
+    return axios({
+      method: 'put',
+      url: API + '/dance_classes/' + dance_class.id,
+      data: {dance_class}
+    })
       .then(() => {
-        dispatch(updateAppLoading(false))
+        dispatch(updateClassSaving(false))
       })
       .catch((error) => {
         console.log(error)
-        dispatch(updateAppLoading(false))
       })
   }, TIMEOUT)
 }
