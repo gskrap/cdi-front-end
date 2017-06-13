@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import { API, TIMEOUT } from '../actions/index.js'
+import { Image, Transformation, CloudinaryContext } from 'cloudinary-react'
 
 import EmergencyContactCard from '../components/EmergencyContactCard'
 import UserGroupsForm from '../components/UserGroupsForm'
@@ -58,6 +59,11 @@ export default class UserCard extends React.Component {
     return (
       <div className='user-card'>
         <h2>{this.user.first_name + ' ' + this.user.last_name}</h2>
+        <Image className='center' cloudName='dqehbd6wb' width='300' crop='scale'
+          publicId={this.user.last_name + '_' + this.user.first_name}
+          alt={this.user.last_name + '_' + this.user.first_name} >
+          <Transformation default_image='avatar.png'/>
+        </Image><br/>
         <div className='user-row'>
           <span className='icon'><i className='icon fa fa-envelope' aria-hidden='true'/></span>
           <span className='text'>{this.user.email}</span>

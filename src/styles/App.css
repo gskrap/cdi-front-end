@@ -28,6 +28,10 @@ body {
   display: inline-block;
 }
 
+.center {
+  margin: auto;
+}
+
 main {
   position: relative;
   /*top: 20%;*/

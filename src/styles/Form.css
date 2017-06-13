@@ -65,6 +65,10 @@ input[type="checkbox"] {
   border-radius: 3px;
 }
 
+.photo-btn-container {
+  padding: 14px 14px 0px 14px;
+}
+
 .btn-log {
   width: 100%;
   font-size: 14px;
