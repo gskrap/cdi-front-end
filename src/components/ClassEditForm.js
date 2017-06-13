@@ -44,15 +44,19 @@ export default class ClassEditForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    let dance_class = {}
-    for (var key in this.state) {
-      if (this.state.hasOwnProperty(key)) {
-        dance_class[key] = this.state[key]
+    if (!(this.state.name == '' || this.state.teacher_id == -1 || this.state.location_id == -1)) {
+      let dance_class = {}
+      for (var key in this.state) {
+        if (this.state.hasOwnProperty(key)) {
+          dance_class[key] = this.state[key]
+        }
       }
+      dance_class['start_time'] = dance_class['start_time'].utc().format()
+      dance_class['end_time'] = dance_class['end_time'].utc().format()
+      this.props.classUpdate(dance_class)
+    } else {
+      this.setState({error: 'Name, Faculty 1, and Location Fields are Mandatory'})
     }
-    dance_class['start_time'] = dance_class['start_time'].utc().format()
-    dance_class['end_time'] = dance_class['end_time'].utc().format()
-    this.props.classUpdate(dance_class)
   }
 
   handleInputChange(e) {
@@ -69,6 +73,10 @@ export default class ClassEditForm extends React.Component {
 
   handleEndTimeChange(date) {
     this.setState({end_time: date})
+  }
+
+  renderError() {
+    if (this.state.error) {return <div className='error'>{this.state.error}</div>}
   }
 
   render() {
@@ -121,6 +129,7 @@ export default class ClassEditForm extends React.Component {
           </form>
         </div>
         <ClassGroupsForm classId={this.props.danceClass.id}/>
+        {this.renderError()}
       </div>
     )
   }
