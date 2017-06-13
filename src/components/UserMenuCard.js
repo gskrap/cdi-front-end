@@ -24,7 +24,7 @@ export default class UserMenuCard extends React.Component {
         stylesheet: styleOverrides,
         cloud_name: 'dqehbd6wb',
         upload_preset: 'qytqbro0',
-        sources: ['local', 'url', 'facebook'],
+        sources: ['local', 'url'],
         theme: 'white',
         public_id: this.props.user.last_name + '_' + this.props.user.first_name,
         tags:['cdi']
@@ -50,7 +50,7 @@ export default class UserMenuCard extends React.Component {
               Add Photo
             </button>
           </div>
-          <h2 className='warning'>Please provide a Head Shot&nbsp;<i className="fa fa-hand-o-up" aria-hidden="true"></i></h2>
+          <h2 className='warning'>Please Provide a Head Shot&nbsp;<i className="fa fa-hand-o-up" aria-hidden="true"></i></h2>
         </div>
       )
     }
