@@ -11,10 +11,12 @@ export default class EmergencyContactForm extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get(`https://cdi-api.herokuapp.com/users/${this.props.userId}/emergency_contacts`)
       .then((response) => {
-        this.setState({showForm: response.data.length < 1})
+        setTimeout(() => {
+          this.setState({showForm: response.data.length < 1})
+        }, 2000)
       })
   }
 

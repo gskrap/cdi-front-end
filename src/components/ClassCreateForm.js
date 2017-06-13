@@ -25,6 +25,7 @@ export default class ClassCreateForm extends React.Component {
     this.state = {
       name: '',
       teacher_id: -1,
+      secondary_teacher_id: -1,
       location_id: -1,
       start_time: moment().roundNext15Min(),
       end_time: moment().roundNext15Min(),
@@ -63,6 +64,7 @@ export default class ClassCreateForm extends React.Component {
     this.setState({
       name: '',
       teacher_id: -1,
+      secondary_teacher_id: -1,
       location_id: -1,
       start_time: moment().roundNext15Min(),
       end_time: moment().roundNext15Min(),
@@ -112,7 +114,13 @@ export default class ClassCreateForm extends React.Component {
         <form className='class-create-form' onSubmit={this.handleSubmit.bind(this)}>
           <input type='text' name='name' placeholder='Class Name' value={this.state.name} onChange={this.handleInputChange}/><br/>
           <select name='teacher_id' value={this.state.teacher_id} onChange={this.handleInputChange}>
-            <option value='-1' disabled>Teacher</option>
+            <option value='-1' disabled>Faculty 1</option>
+            {this.props.teachers.map((t) => {
+              return <option key={t.id} value={parseInt(t.id)}>{t.first_name + ' ' + t.last_name}</option>
+            })}
+          </select>
+          <select name='secondary_teacher_id' value={this.state.secondary_teacher_id} onChange={this.handleInputChange}>
+            <option value='-1'>Faculty 2</option>
             {this.props.teachers.map((t) => {
               return <option key={t.id} value={parseInt(t.id)}>{t.first_name + ' ' + t.last_name}</option>
             })}

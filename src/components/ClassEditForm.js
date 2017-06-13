@@ -26,6 +26,7 @@ export default class ClassEditForm extends React.Component {
       id: this.props.danceClass.id,
       name: this.props.danceClass.name || '',
       teacher_id: this.props.danceClass.teacher_id || -1,
+      secondary_teacher_id: this.props.danceClass.secondary_teacher_id || -1,
       location_id: this.props.danceClass.location_id || -1,
       start_time: this.props.danceClass.start_time ? moment(this.props.danceClass.start_time) : moment().roundNext15Min(),
       end_time: this.props.danceClass.end_time ? moment(this.props.danceClass.end_time) : moment().roundNext15Min(),
@@ -77,7 +78,13 @@ export default class ClassEditForm extends React.Component {
           <form className='class-edit-form' onSubmit={this.handleSubmit.bind(this)}>
             <input type='text' name='name' placeholder='Class Name' value={this.state.name} onChange={this.handleInputChange}/><br/>
             <select name='teacher_id' value={this.state.teacher_id} onChange={this.handleInputChange}>
-              <option value='-1' disabled>Teacher</option>
+              <option value='-1' disabled>Faculty 1</option>
+              {this.props.teachers.map((t) => {
+                return <option key={t.id} value={parseInt(t.id)}>{t.first_name + ' ' + t.last_name}</option>
+              })}
+            </select>
+            <select name='secondary_teacher_id' value={this.state.secondary_teacher_id} onChange={this.handleInputChange}>
+              <option value='-1'>Faculty 2</option>
               {this.props.teachers.map((t) => {
                 return <option key={t.id} value={parseInt(t.id)}>{t.first_name + ' ' + t.last_name}</option>
               })}

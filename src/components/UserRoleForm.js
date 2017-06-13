@@ -41,7 +41,7 @@ export default class UserRoleForm extends React.Component {
         <div className='row'>
           <select className='role-select' value={this.state.role} onChange={(e) => {this.setState({role: e.target.value})}}>
             <option value='student'>Student</option>
-            <option value='teacher'>Teacher</option>
+            <option value='teacher'>Faculty</option>
             <option value='work_study'>Work Study</option>
             <option value='admin'>Admin</option>
           </select>
