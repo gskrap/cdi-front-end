@@ -11,8 +11,19 @@
   color: #63666A;
 }
 
+.row > .sub {
+  margin: auto;
+  margin-bottom: 25px;
+  width: 88px;
+}
+
+.row > .sub > div {
+  font-size: 10px;
+}
+
 .check-container {
   display: flex;
+  margin-top: 4px;
 }
 
 input[type="checkbox"] {
@@ -21,10 +32,7 @@ input[type="checkbox"] {
 
 .row {
   display: flex;
-}
-
-.row > .sub {
-  flex: 1;
+  flex-wrap: wrap;
 }
 
 .row > .sub.small {

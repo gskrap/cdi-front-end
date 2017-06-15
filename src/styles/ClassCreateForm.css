@@ -29,6 +29,10 @@
   color: #63666A;
 }
 
+.class-create-form > .check-row {
+  height: auto;
+}
+
 .class-create-form > select,
 .class-edit-form > select {
   padding-left: 14px;
@@ -46,10 +50,14 @@
 
 .check-row {
   display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 .check-row > .sub {
-  flex: 1;
+  margin: auto;
+  margin-bottom: 24px;
+  width: 88px;
 }
 
 .check-row > .sub > span {
