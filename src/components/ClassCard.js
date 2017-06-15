@@ -11,6 +11,12 @@ export default class ClassCard extends React.Component {
     }
   }
 
+  renderSecondTeacher() {
+    if (this.props.danceClass.secondary_teacher) {
+      return <p className='teacher'>{this.props.danceClass.secondary_teacher.first_name + ' ' + this.props.danceClass.secondary_teacher.last_name}</p>
+    }
+  }
+
   renderEditButtons() {
     if (this.props.user.role == 'admin') {
       return (
@@ -42,6 +48,7 @@ export default class ClassCard extends React.Component {
           <div className='half'>
             <div className='title parallelogram'><div>{this.props.danceClass.name}</div></div>
             <p className='teacher'>{this.props.danceClass.teacher.first_name + ' ' + this.props.danceClass.teacher.last_name}</p>
+            {this.renderSecondTeacher()}
             <p className='location'>{this.props.danceClass.location ? this.props.danceClass.location.name : 'No Location'}</p>
           </div>
           <div className='half'>
