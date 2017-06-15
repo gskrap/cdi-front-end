@@ -35,7 +35,7 @@ export default class UserMenuCard extends React.Component {
   }
 
   checkPhoto() {
-    axios.get('http://res.cloudinary.com/dqehbd6wb/image/upload/v1497381944/' + this.props.user.last_name + '_' + this.props.user.first_name)
+    axios.get('http://res.cloudinary.com/dqehbd6wb/image/upload/v1497381944/' + this.props.user.last_name + '_' + this.props.user.first_name + '_cdi')
       .catch(() => {
         this.setState({showPhotoUploadButton: true})
       })
