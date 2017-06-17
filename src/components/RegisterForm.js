@@ -41,7 +41,7 @@ export default class RegisterForm extends React.Component {
     if (this.state.student) {
       return (
         <div className='row'>
-          <div className="sub">
+          <div className='sub large'>
             <span>Date of Birth</span>
             <Datetime
               value={this.state.dateOfBirth}
@@ -54,7 +54,7 @@ export default class RegisterForm extends React.Component {
             <span>Alumni?</span>
             <div className='check-container'><input type='checkbox' checked={this.state.alumni} onChange={() => this.setState({alumni: !this.state.alumni})}/></div>
           </div>
-          <div className='sub'>
+          <div className='sub large'>
             <span>Gender</span>
             <select ref='gender' defaultValue='female' className='gender-list'>
               <option value='not_specified'>Other</option>

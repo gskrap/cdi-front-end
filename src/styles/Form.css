@@ -35,8 +35,13 @@ input[type="checkbox"] {
   flex-wrap: wrap;
 }
 
+.row > .sub.large {
+  flex: 1;
+}
+
 .row > .sub.small {
   flex: 0;
+  margin-right: -3px;
 }
 
 .row > .sub > span {

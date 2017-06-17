@@ -60,7 +60,7 @@ export default class UserCard extends React.Component {
       <div className='user-card'>
         <h2>{this.user.first_name + ' ' + this.user.last_name}</h2>
         <Image className='center' cloudName='dqehbd6wb' width='300' crop='scale'
-          publicId={this.user.last_name + '_' + this.user.first_name + '_cdi'}
+          publicId={'2017_' + this.user.last_name + '_' + this.user.first_name + '_cdi_gskrap'}
           alt={this.user.last_name + '_' + this.user.first_name} >
           <Transformation default_image='avatar.png'/>
         </Image><br/>

@@ -26,16 +26,17 @@ export default class UserMenuCard extends React.Component {
         upload_preset: 'qytqbro0',
         sources: ['local', 'url'],
         theme: 'white',
-        public_id: this.props.user.last_name + '_' + this.props.user.first_name,
+        public_id: '2017_' + this.props.user.last_name + '_' + this.props.user.first_name + '_cdi_gskrap',
         tags:['cdi']
       },
       function(error, result) {
+        this.setState({showPhotoUploadButton: false})
         console.log(result);
-      });
+      }.bind(this));
   }
 
   checkPhoto() {
-    axios.get('http://res.cloudinary.com/dqehbd6wb/image/upload/v1497381944/' + this.props.user.last_name + '_' + this.props.user.first_name + '_cdi')
+    axios.get('http://res.cloudinary.com/dqehbd6wb/image/upload/v1497381944/' + '2017_' + this.props.user.last_name + '_' + this.props.user.first_name + '_cdi_gskrap')
       .catch(() => {
         this.setState({showPhotoUploadButton: true})
       })
