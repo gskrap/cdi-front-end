@@ -29,6 +29,29 @@ export default class UserCard extends React.Component {
     }, TIMEOUT)
   }
 
+  renderUserContactInfo() {
+    return (
+      this.props.currentUser.role == 'admin' ?
+        (
+          <div>
+            <div className='user-row'>
+              <span className='icon'><i className='icon fa fa-envelope' aria-hidden='true'/></span>
+              <span className='text'>{this.user.email}</span>
+            </div>
+            <div className='user-row'>
+              <span className='icon'><i className='icon fa fa-phone-square' aria-hidden='true'/></span>
+              <span className='text'>{this.user.phone}</span>
+            </div>
+            <div className='user-row'>
+              <span className='icon'><i className='icon fa fa-birthday-cake' aria-hidden='true'/></span>
+              <span className='text'>{moment(this.user.date_of_birth).utc().format('MMMM D, YYYY')}</span>
+            </div>
+          </div>
+        ) :
+        null
+    )
+  }
+
   renderUserGroupsForm() {
     return (
       this.props.currentUser.role == 'admin' ?
@@ -40,6 +63,19 @@ export default class UserCard extends React.Component {
     return (
       this.props.currentUser.role == 'admin' ?
         <UserRoleForm user={this.user}/> : null
+    )
+  }
+
+  renderEmergencyContactContainer() {
+    return (
+      this.props.currentUser.role == 'admin' ?
+        (
+          <div className='emergency-contact-list'>
+            <h3>Emergency Contacts</h3>
+            {this.renderEmergencyContacts()}
+          </div>
+        ) :
+        null
     )
   }
 
@@ -64,24 +100,10 @@ export default class UserCard extends React.Component {
           alt={this.user.last_name + '_' + this.user.first_name} >
           <Transformation default_image='avatar.png'/>
         </Image><br/>
-        <div className='user-row'>
-          <span className='icon'><i className='icon fa fa-envelope' aria-hidden='true'/></span>
-          <span className='text'>{this.user.email}</span>
-        </div>
-        <div className='user-row'>
-          <span className='icon'><i className='icon fa fa-phone-square' aria-hidden='true'/></span>
-          <span className='text'>{this.user.phone}</span>
-        </div>
-        <div className='user-row'>
-          <span className='icon'><i className='icon fa fa-birthday-cake' aria-hidden='true'/></span>
-          <span className='text'>{moment(this.user.date_of_birth).utc().format('MMMM D, YYYY')}</span>
-        </div>
+        {this.renderUserContactInfo()}
         {this.renderUserGroupsForm()}
         {this.renderUserRoleForm()}
-        <div className='emergency-contact-list'>
-          <h3>Emergency Contacts</h3>
-          {this.renderEmergencyContacts()}
-        </div>
+        {this.renderEmergencyContactContainer()}
       </div>
     )
   }

@@ -6,4 +6,13 @@
   font-size: 26px;
   padding: 10px 0px 10px 30px;
   border-bottom: 1px solid #EEEEEE;
+  display: flex;
+}
+
+.user-list-user:hover {
+  cursor: pointer;
+}
+
+.tiny-photo {
+  margin-right: 10px;
 }

@@ -104,6 +104,13 @@ export const updateAdminView = (view) => {
   }
 }
 
+export const updateUserView = (view) => {
+  return {
+    type: 'UPDATE_USER_VIEW',
+    view
+  }
+}
+
 export const getPermissions = () => dispatch => {
   dispatch(updateAppLoading(true))
   setTimeout(() => {

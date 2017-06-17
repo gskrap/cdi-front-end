@@ -1,6 +1,6 @@
 import React from 'react'
 import AdminMenuCardContainer from '../containers/AdminMenuCardContainer'
-import UserMenuCard from './UserMenuCard'
+import UserMenuCardContainer from '../containers/UserMenuCardContainer'
 
 import '../styles/UserHome.css'
 
@@ -9,7 +9,7 @@ export default class UserHome extends React.Component {
     return (
       this.props.user.role == 'admin' ?
         <AdminMenuCardContainer/> :
-        <UserMenuCard user={this.props.user}/>
+        <UserMenuCardContainer/>
     )
   }
 

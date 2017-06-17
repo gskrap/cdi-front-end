@@ -52,6 +52,10 @@ const reducer = (state, action) => {
       return Object.assign({}, state, {
         adminView: action.view
       })
+    case 'UPDATE_USER_VIEW':
+      return Object.assign({}, state, {
+        userView: action.view
+      })
     case 'UPDATE_CLASS_SAVING':
       return Object.assign({}, state, {
         classSaving: action.bool

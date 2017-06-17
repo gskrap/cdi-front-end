@@ -2,6 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import EmergencyContactForm from './EmergencyContactForm'
 import ClassListContainer from '../containers/ClassListContainer'
+import TeacherListContainer from '../containers/TeacherListContainer'
 
 import '../styles/UserMenuCard.css'
 
@@ -11,6 +12,10 @@ export default class UserMenuCard extends React.Component {
     this.state = {
       showPhotoUploadButton: false
     }
+  }
+
+  selected(view) {
+    return this.props.userView === view
   }
 
   componentDidMount() {
@@ -57,6 +62,15 @@ export default class UserMenuCard extends React.Component {
     }
   }
 
+  renderView() {
+    switch(this.props.userView) {
+      case 'classes':
+        return <ClassListContainer/>
+      case 'teachers':
+        return <TeacherListContainer/>
+    }
+  }
+
   render() {
     return (
       <div>
@@ -64,9 +78,11 @@ export default class UserMenuCard extends React.Component {
           {this.renderPhotoUploadButton()}
           <div className='top'>
             <EmergencyContactForm userId={this.props.user.id}/>
+            <button className={this.selected('classes')} onClick={() => this.props.updateUserView('classes')}>Classes</button>
+            <button className={this.selected('teachers')} onClick={() => this.props.updateUserView('teachers')}>Teachers</button>
           </div>
           <div className='bottom'>
-            <ClassListContainer/>
+            {this.renderView()}
           </div>
         </div>
       </div>

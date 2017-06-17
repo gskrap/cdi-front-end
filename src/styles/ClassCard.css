@@ -3,7 +3,7 @@
   display: flex;
 }
 
-.class-card-container:nth-child(odd) {
+.class-card-container:nth-child(even) {
   background-color: #FBFFFB;
 }
 

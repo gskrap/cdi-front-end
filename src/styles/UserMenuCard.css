@@ -5,6 +5,7 @@
 
 .user-menu > .top {
   flex: 0;
+  margin: 8px 10px 4px 10px
 }
 
 .user-menu > .bottom {

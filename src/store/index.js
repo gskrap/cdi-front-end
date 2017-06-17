@@ -29,7 +29,8 @@ const store = configureStore({
   users: [],
   teachers: [],
 
-  adminView: 'allClasses'
+  adminView: 'allClasses',
+  userView: 'classes'
 })
 
 export { store }
