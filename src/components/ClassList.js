@@ -14,9 +14,9 @@ export default class ClassList extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.fetchClasses()
-  }
+  // componentWillMount() {
+  //   this.fetchClasses()
+  // }
 
   backToList() {
     this.fetchClasses()
@@ -24,7 +24,7 @@ export default class ClassList extends React.Component {
   }
 
   fetchClasses() {
-    let prefix = ['admin', 'work_study'].includes(this.props.user.role) ? '' : `/users/${this.props.user.id}`
+    let prefix = this.props.all ? '' : `/users/${this.props.user.id}`
     this.props.getClasses(prefix)
   }
 

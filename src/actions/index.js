@@ -3,7 +3,7 @@ import axios from 'axios'
 export const API = 'https://cdi-api.herokuapp.com'
 // export const API = 'http://localhost:3000'
 
-export const TIMEOUT = 700
+export const TIMEOUT = 300
 // export const TIMEOUT = 0
 
 export const updateAppLoading = (bool) => {
@@ -37,6 +37,13 @@ export const updateLocationsLoading = (bool) => {
 export const updateUsersLoading = (bool) => {
   return {
     type: 'UPDATE_USERS_LOADING',
+    bool
+  }
+}
+
+export const updateTeachersLoading = (bool) => {
+  return {
+    type: 'UPDATE_TEACHERS_LOADING',
     bool
   }
 }
@@ -190,7 +197,7 @@ export const logOut = () => dispatch => {
 }
 
 export const getClasses = (_prefix) => dispatch => {
-  // dispatch(updateClassesLoading(true))
+  dispatch(updateClassesLoading(true))
   let prefix = _prefix ? _prefix : ''
   return axios.get(API + prefix + '/dance_classes')
     .then((response) => {
@@ -307,6 +314,7 @@ export const getTeachers = () => dispatch => {
     .then((response) => {
       setTimeout(() => {
         dispatch(updateTeachers(response.data))
+        dispatch(updateTeachersLoading(false))
       }, TIMEOUT)
     })
 }

@@ -18,8 +18,9 @@ export default class UserMenuCard extends React.Component {
     return this.props.userView === view
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.checkPhoto()
+    this.props.getClasses(`/users/${this.props.user.id}`)
   }
 
   uploadWidget() {
@@ -64,6 +65,8 @@ export default class UserMenuCard extends React.Component {
 
   renderView() {
     switch(this.props.userView) {
+      case 'allClasses':
+        return <ClassListContainer all={true}/>
       case 'classes':
         return <ClassListContainer/>
       case 'teachers':
@@ -76,9 +79,18 @@ export default class UserMenuCard extends React.Component {
       <div>
         <div className='user-menu'>
           {this.renderPhotoUploadButton()}
+          <EmergencyContactForm userId={this.props.user.id}/>
           <div className='top'>
-            <EmergencyContactForm userId={this.props.user.id}/>
-            <button className={this.selected('classes')} onClick={() => this.props.updateUserView('classes')}>Classes</button>
+            <button className={this.selected('allClasses')}
+              onClick={() => {
+                this.props.getClasses('')
+                this.props.updateUserView('allClasses')}
+              }>All Classes</button>
+            <button className={this.selected('classes')}
+              onClick={() => {
+                this.props.getClasses(`/users/${this.props.user.id}`)
+                this.props.updateUserView('classes')}
+              }>My Classes</button>
             <button className={this.selected('teachers')} onClick={() => this.props.updateUserView('teachers')}>Teachers</button>
           </div>
           <div className='bottom'>

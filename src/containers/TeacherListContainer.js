@@ -13,6 +13,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getUsers: () => {dispatch(getTeachers())},
+    getUsersInitial: () => {dispatch(getTeachers())},
   }
 }
 

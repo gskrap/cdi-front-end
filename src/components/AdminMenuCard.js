@@ -7,6 +7,10 @@ import ClassCreateFormContainer from '../containers/ClassCreateFormContainer'
 import '../styles/AdminMenuCard.css'
 
 export default class AdminMenuCard extends React.Component {
+  componentWillMount() {
+    this.props.getClasses('')
+  }
+
   selected(view) {
     return this.props.adminView === view
   }
@@ -14,7 +18,7 @@ export default class AdminMenuCard extends React.Component {
   renderView() {
     switch(this.props.adminView) {
       case 'allClasses':
-        return <ClassListContainer/>
+        return <ClassListContainer all={true}/>
       case 'createClass':
         return <ClassCreateFormContainer/>
       case 'locations':

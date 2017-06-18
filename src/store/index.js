@@ -21,6 +21,7 @@ const store = configureStore({
   groupsLoading: true,
   locationsLoading: true,
   usersLoading: false,
+  teachersLoading: true,
   classSaving: false,
 
   classes: [],

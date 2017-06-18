@@ -1,6 +1,6 @@
 import UserMenuCard from '../components/UserMenuCard'
 import { connect } from 'react-redux'
-import { updateUserView } from '../actions'
+import { getClasses, updateUserView } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -12,6 +12,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     updateUserView: (view) => {dispatch(updateUserView(view))},
+    getClasses: (prefix) => {dispatch(getClasses(prefix))},
   }
 }
 

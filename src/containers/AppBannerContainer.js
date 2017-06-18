@@ -1,6 +1,6 @@
 import AppBanner from '../components/AppBanner'
 import { connect } from 'react-redux'
-import { logOut } from '../actions'
+import { logOut, getClasses, updateAdminView, updateUserView } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -12,6 +12,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     logOut: (session) => {dispatch(logOut(session))},
+    getClasses: (prefix) => {dispatch(getClasses(prefix))},
+    updateAdminView: (view) => {dispatch(updateAdminView(view))},
+    updateUserView: (view) => {dispatch(updateUserView(view))},
   }
 }
 

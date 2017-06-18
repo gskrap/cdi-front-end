@@ -1,6 +1,6 @@
 import AdminMenuCard from '../components/AdminMenuCard'
 import { connect } from 'react-redux'
-import { updateAdminView } from '../actions'
+import { getClasses, updateAdminView } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -10,6 +10,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    getClasses: (prefix) => {dispatch(getClasses(prefix))},
     updateAdminView: (view) => {dispatch(updateAdminView(view))},
   }
 }
