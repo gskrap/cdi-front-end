@@ -17,15 +17,38 @@ export default class ClassCard extends React.Component {
     }
   }
 
-  renderEditButtons() {
+  renderDeleteButton() {
     if (this.props.user.role == 'admin') {
       return (
-        <div className='small'>
-          <i className='fa fa-trash' onClick={() => this.setState({showConfirmDelete: true})} aria-hidden="true"></i>
-          <i className='fa fa-pencil' onClick={() => this.props.showEditCard(this.props.danceClass)} aria-hidden="true"></i>
-        </div>
+        <i className='fa fa-trash' onClick={() => this.setState({showConfirmDelete: true})} aria-hidden="true"></i>
       )
     }
+  }
+
+  renderEditButton() {
+    if (this.props.user.role == 'admin') {
+      return (
+        <i className='fa fa-pencil' onClick={() => this.props.showEditCard(this.props.danceClass)} aria-hidden="true"></i>
+      )
+    }
+  }
+
+  renderRollCallButton() {
+    if (['admin', 'work_study', 'teacher'].includes(this.props.user.role)) {
+      return (
+        <i className='fa fa-users' onClick={() => this.props.showRollCallForm(this.props.danceClass)} aria-hidden="true"></i>
+      )
+    }
+  }
+
+  renderEditButtons() {
+    return (
+      <div className='small button-row'>
+        {this.renderDeleteButton()}
+        {this.renderEditButton()}
+        {this.renderRollCallButton()}
+      </div>
+    )
   }
 
   renderConfirmDelete() {
@@ -61,8 +84,8 @@ export default class ClassCard extends React.Component {
               return <p className='group' key={g.id}>{g.name + (i < this.props.danceClass.groups.length - 1 ? ',\u00A0' : '')}</p>
             })}
           </div>
-          {this.renderEditButtons()}
         </div>
+        {this.renderEditButtons()}
       </div>
     )
   }

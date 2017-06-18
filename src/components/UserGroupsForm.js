@@ -79,7 +79,7 @@ export default class UserGroupsForm extends React.Component {
         <div className='row'>
           {this.state.groups.map((g) => {
             return (
-              <div className={'sub'} key={g.id}>
+              <div className={'sub grp-sub'} key={g.id}>
                 <input type="checkbox" checked={this.state.values[g.id]} onChange={() => {this.checkSelection(g.id)}}/>
                 <div>{g.name}</div>
               </div>

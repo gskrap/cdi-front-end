@@ -15,16 +15,54 @@ export default class UserList extends React.Component {
   }
 
   componentWillMount() {
-    this.props.getUsers()
+    if (this.props.getUsers) {
+      this.props.getUsers()
+    }
+    if (this.props.rollCall) {
+      this.props.users.forEach((u) => {
+        this.setState({[u.first_name + ' ' + u.last_name + '_user']: false})
+      })
+    }
   }
 
   renderUserCard() {
+    debugger;
     return (
       <div>
-        <button className='btn btn-primary btn-group' onClick={() => this.setState({showUser: false})}>Back to List</button>
+        <button className='btn btn-primary btn-group' onClick={() => this.setState({showUser: false})}>Back to Users</button>
         <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
       </div>
     )
+  }
+
+  activeButtonClass(name) {
+    return this.state[name + '_user'] ? 'roll-active' : 'roll-inactive'
+  }
+
+  toggleButton(name) {
+    this.setState({[name + '_user']: !this.state[name + '_user']})
+  }
+
+  renderAttendanceButton(u) {
+    if (this.props.rollCall) {
+      return (
+        <i className={'fa fa-check ' + this.activeButtonClass(u.first_name + ' ' + u.last_name)} onClick={() => this.toggleButton(u.first_name + ' ' + u.last_name)} aria-hidden="true"></i>
+      )
+    }
+  }
+
+  renderAttendanceSubmit() {
+    if (this.props.rollCall) {
+      let body = 'The following students were not present when attendance was taken: %0D%0A%0D%0A'
+      Object.keys(this.state).forEach((key) => {
+        if (key.slice(key.length - 5, key.length) == '_user' && !this.state[key]) {
+          body = body + key.slice(0, key.length - 5) + '%0D%0A'
+        }
+      })
+      return (
+        <button className='btn btn-primary btn-roll-submit' onClick={() => {window.location.href ="mailto:commercialdanceintensive@gmail.com?subject=Attendance - " + this.props.rollCallClass.name + "&body=" + body}}>Submit Attendance</button>
+      )
+    }
   }
 
   renderUserList() {
@@ -32,16 +70,20 @@ export default class UserList extends React.Component {
       <div className='user-list'>
         {this.props.users.map((u) => {
           return (
-            <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})} key={u.id}>
-              <Image className='tiny-photo' cloudName='dqehbd6wb' width='50' crop='scale'
-                publicId={'2017_' + u.last_name + '_' + u.first_name + '_cdi_gskrap'}
-                alt={u.last_name + '_' + u.first_name} >
-                <Transformation default_image='avatar.png'/>
-              </Image>
-              {u.first_name + ' ' + u.last_name}
+            <div key={u.id} className='roll-call-row'>
+              {this.renderAttendanceButton(u)}
+              <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})}>
+                <Image className='tiny-photo' cloudName='dqehbd6wb' width='50' crop='scale'
+                  publicId={'2017_' + u.last_name + '_' + u.first_name + '_cdi_gskrap'}
+                  alt={u.last_name + '_' + u.first_name} >
+                  <Transformation default_image='avatar.png'/>
+                </Image>
+                {u.first_name + ' ' + u.last_name}
+              </div>
             </div>
           )
         })}
+        {this.renderAttendanceSubmit()}
       </div>
     )
   }

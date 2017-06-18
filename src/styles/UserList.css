@@ -4,9 +4,11 @@
 
 .user-list-user {
   font-size: 26px;
-  padding: 10px 0px 10px 30px;
+  padding: 10px 0px 10px 10px;
   border-bottom: 1px solid #EEEEEE;
   display: flex;
+  flex: 1;
+  margin-left: 10px;
 }
 
 .user-list-user:hover {
@@ -15,4 +17,31 @@
 
 .tiny-photo {
   margin-right: 10px;
+}
+.roll-call-row {
+  display: flex;
+}
+
+.roll-active {
+  color: #21C9AB;
+}
+
+.roll-inactive {
+  color: #C1C1C1;
+}
+
+.roll-active,
+.roll-inactive {
+  margin: auto 10px auto 20px;
+  font-size: 40px !important;
+}
+
+.roll-active:hover ,
+.roll-inactive:hover {
+  cursor: pointer;
+}
+
+.btn-roll-submit {
+  margin: 20px auto;
+  display: flex;
 }

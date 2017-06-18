@@ -13,8 +13,13 @@
 
 .row > .sub {
   margin: auto;
-  margin-bottom: 25px;
-  width: 88px;
+  margin-bottom: 0px;
+}
+
+.grp-sub {
+  width: 50px;
+  flex: 1;
+  margin: 30px;
 }
 
 .row > .sub > div {

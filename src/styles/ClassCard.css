@@ -3,6 +3,10 @@
   display: flex;
 }
 
+.class-card-container {
+  border-bottom: 1px solid #C1C1C1;
+}
+
 .class-card-container:nth-child(even) {
   background-color: #FBFFFB;
 }
@@ -20,9 +24,13 @@
 }
 
 .small > .fa {
-  display: flex;
+  flex: 1;
   margin-bottom: 10px;
   font-size: 24px;
+}
+
+.small > .fa:hover {
+  cursor: pointer;
 }
 
 .small > .fa:hover {
@@ -84,4 +92,10 @@
   -webkit-transform: skew(20deg);
   -moz-transform: skew(20deg);
   -o-transform: skew(20deg);
+}
+
+.button-row {
+  display: flex;
+  width: 180px;
+  margin: auto;
 }

@@ -20,7 +20,7 @@ const store = configureStore({
   classesLoading: true,
   groupsLoading: true,
   locationsLoading: true,
-  usersLoading: true,
+  usersLoading: false,
   classSaving: false,
 
   classes: [],

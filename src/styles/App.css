@@ -75,7 +75,12 @@ textarea,
 input[type="text"],
 input[type="password"],
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+select {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+.roll-head {
+  margin: 2px;
 }

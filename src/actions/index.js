@@ -228,6 +228,7 @@ export const getLocations = () => dispatch => {
 }
 
 export const getUsers = () => dispatch => {
+  dispatch(updateUsersLoading(true))
   return axios.get(API + '/users')
     .then((response) => {
       setTimeout(() => {

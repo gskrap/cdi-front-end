@@ -4,8 +4,9 @@
 }
 
 .user-menu > .top {
-  flex: 0;
-  margin: 8px 10px 4px 10px
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #21C9AB;
 }
 
 .user-menu > .bottom {
