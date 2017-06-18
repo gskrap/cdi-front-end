@@ -13,7 +13,7 @@ export default class ClassCard extends React.Component {
 
   renderSecondTeacher() {
     if (this.props.danceClass.secondary_teacher) {
-      return <p className='teacher'>{this.props.danceClass.secondary_teacher.first_name + ' ' + this.props.danceClass.secondary_teacher.last_name}</p>
+      return <div className='teacher'>{this.props.danceClass.secondary_teacher.first_name + ' ' + this.props.danceClass.secondary_teacher.last_name}</div>
     }
   }
 
@@ -41,16 +41,6 @@ export default class ClassCard extends React.Component {
     }
   }
 
-  renderEditButtons() {
-    return (
-      <div className='small button-row'>
-        {this.renderDeleteButton()}
-        {this.renderEditButton()}
-        {this.renderRollCallButton()}
-      </div>
-    )
-  }
-
   renderConfirmDelete() {
     if (this.state.showConfirmDelete) {
       return(
@@ -70,9 +60,9 @@ export default class ClassCard extends React.Component {
         <div className='class-card'>
           <div className='half'>
             <div className='title parallelogram'><div>{this.props.danceClass.name}</div></div>
-            <p className='teacher'>{this.props.danceClass.teacher.first_name + ' ' + this.props.danceClass.teacher.last_name}</p>
+            <div className='teacher'>{this.props.danceClass.teacher.first_name + ' ' + this.props.danceClass.teacher.last_name}</div>
             {this.renderSecondTeacher()}
-            <p className='location'>{this.props.danceClass.location ? this.props.danceClass.location.name : 'No Location'}</p>
+            <div className='location'>{this.props.danceClass.location ? this.props.danceClass.location.name : 'No Location'}</div>
           </div>
           <div className='half'>
             <div className='date'>
@@ -80,12 +70,18 @@ export default class ClassCard extends React.Component {
               <p className='inline'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).format('h:mm A') : ''}</p>
               <p className='inline'>{this.props.danceClass.end_time ? moment(this.props.danceClass.end_time).format('\u00A0- h:mm A') : ''}</p>
             </div>
-            {this.props.danceClass.groups.map((g, i) => {
-              return <p className='group' key={g.id}>{g.name + (i < this.props.danceClass.groups.length - 1 ? ',\u00A0' : '')}</p>
-            })}
+            <div>
+              {this.props.danceClass.groups.map((g, i) => {
+                return <p className='group' key={g.id}>{g.name + (i < this.props.danceClass.groups.length - 1 ? ',\u00A0' : '')}</p>
+              })}
+            </div>
+            <div className='small button-row'>
+              {this.renderDeleteButton()}
+              {this.renderEditButton()}
+              {this.renderRollCallButton()}
+            </div>
           </div>
         </div>
-        {this.renderEditButtons()}
       </div>
     )
   }

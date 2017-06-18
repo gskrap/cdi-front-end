@@ -12,9 +12,11 @@
 }
 
 .class-card > .half {
-  display: inline-block;
   vertical-align: top;
   flex: 1;
+  display: flex;
+  min-height: 100px;
+  flex-direction: column;
 }
 
 .class-card > .small {
@@ -27,6 +29,7 @@
   flex: 1;
   margin-bottom: 10px;
   font-size: 24px;
+  color: #21C9AB;
 }
 
 .small > .fa:hover {
@@ -40,8 +43,6 @@
 .title {
   margin: 1px;
   padding: 5px 0px;
-  background: #21C9AB;
-  color: white;
   font-size: 14px;
 }
 
@@ -52,6 +53,7 @@
 
 .class-card > .half > .teacher, .location {
   font-size: 12px;
+  margin: 4px;
 }
 
 .class-card > .half > .date {
@@ -59,7 +61,7 @@
   margin: 0px;
 }
 
-.class-card > .half > .group {
+.class-card > .half > div > .group {
   font-size: 10px;
   margin: 0px;
   display: inline-block;
@@ -69,7 +71,6 @@
   background: #EEEEEE;
   padding: 12px;
 }
-
 
 .btn-confirm-delete {
   background: #63666A;
@@ -82,20 +83,12 @@
 }
 
 .parallelogram {
-  border-radius: 7px;
-  -webkit-transform: skew(-20deg);
-  -moz-transform: skew(-20deg);
-  -o-transform: skew(-20deg);
-}
-
-.parallelogram > div {
-  -webkit-transform: skew(20deg);
-  -moz-transform: skew(20deg);
-  -o-transform: skew(20deg);
+  font-size: 14px;
+  border-bottom: 1px solid #21C9AB;
 }
 
 .button-row {
   display: flex;
-  width: 180px;
-  margin: auto;
+  width: 130px;
+  margin: 20px auto 0px auto;
 }

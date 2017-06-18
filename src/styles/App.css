@@ -29,6 +29,10 @@ body {
   display: inline-block;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .center {
   margin: auto;
 }

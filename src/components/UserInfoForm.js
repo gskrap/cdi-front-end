@@ -62,6 +62,7 @@ export default class UserInfoForm extends React.Component {
   renderForm() {
     return (
       <form className='form info-form' onSubmit={this.handleSubmit.bind(this)}>
+        <div className='text-left'><span>Bio:</span></div>
         <textarea name='bio' rows={10} value={this.state.bio} onChange={this.handleInputChange.bind(this)}/>
         <span className='icon field-icon'><i className='icon fa fa-phone-square' aria-hidden='true'/></span>
         <input name='phone' type='text' value={this.state.phone} onChange={this.handleInputChange.bind(this)}/>
