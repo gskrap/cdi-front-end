@@ -14,9 +14,9 @@ export default class UserList extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.getUsers) {
-      this.props.getUsers()
+      this.props.getUsersInitial()
     }
     if (this.props.rollCall) {
       this.props.users.forEach((u) => {
@@ -26,10 +26,16 @@ export default class UserList extends React.Component {
   }
 
   renderUserCard() {
-    debugger;
     return (
       <div>
-        <button className='btn btn-primary btn-group' onClick={() => this.setState({showUser: false})}>Back to Users</button>
+        <button className='btn btn-primary btn-group'
+          onClick={() => {
+            if (!this.props.rollCall) {
+              this.props.getUsers()
+            }
+            this.setState({showUser: false})}}>
+          Back to Users
+        </button>
         <UserCard user={this.state.selectedUser} currentUser={this.props.currentUser}/>
       </div>
     )
@@ -73,9 +79,10 @@ export default class UserList extends React.Component {
             <div key={u.id} className='roll-call-row'>
               {this.renderAttendanceButton(u)}
               <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})}>
-                <Image className='tiny-photo' cloudName='dqehbd6wb' width='50' crop='scale'
+                <Image className='tiny-photo' cloudName='dqehbd6wb'
                   publicId={'2017_' + u.last_name + '_' + u.first_name + '_cdi_gskrap'}
                   alt={u.last_name + '_' + u.first_name} >
+                  <Transformation width='50' height='50' gravity='face' crop='thumb'/>
                   <Transformation default_image='avatar.png'/>
                 </Image>
                 {u.first_name + ' ' + u.last_name}

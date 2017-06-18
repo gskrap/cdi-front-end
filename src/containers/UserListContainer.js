@@ -1,6 +1,6 @@
 import UserList from '../components/UserList'
 import { connect } from 'react-redux'
-import { getUsers } from '../actions'
+import { getUsers, getUsersInitial } from '../actions'
 
 function mapStateToProps(state) {
   return {
@@ -13,6 +13,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     getUsers: () => {dispatch(getUsers())},
+    getUsersInitial: () => {dispatch(getUsersInitial())},
   }
 }
 

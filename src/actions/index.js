@@ -227,8 +227,21 @@ export const getLocations = () => dispatch => {
     })
 }
 
-export const getUsers = () => dispatch => {
+export const getUsersInitial = () => dispatch => {
   dispatch(updateUsersLoading(true))
+  return axios.get(API + '/users')
+    .then((response) => {
+      setTimeout(() => {
+        dispatch(updateUsers(response.data))
+        dispatch(updateUsersLoading(false))
+      }, TIMEOUT)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
+export const getUsers = () => dispatch => {
   return axios.get(API + '/users')
     .then((response) => {
       setTimeout(() => {

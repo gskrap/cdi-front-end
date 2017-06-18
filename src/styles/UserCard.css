@@ -16,5 +16,13 @@
   margin-right: 6px;
 }
 
-.user-row > .text {
+.user-bio {
+  border: 2px solid #EEEEEE;
+  width: 300px;
+  margin: auto;
+  padding: 16px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  text-align: left;
+  white-space: pre-wrap;
 }

@@ -19,7 +19,7 @@
 .grp-sub {
   width: 50px;
   flex: 1;
-  margin: 30px;
+  margin: 30px !important;
 }
 
 .row > .sub > div {
@@ -92,19 +92,23 @@ input[type="checkbox"] {
   font-size: 14px;
 }
 
-.group-form {
+.group-form,
+.role-form,
+.info-form {
   background: #EEEEEE;
   margin-top: 6px;
+}
+
+.info-form > textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  margin-bottom: 10px;
 }
 
 .btn-group {
   margin-top: 12px;
   width: 180px;
-}
-
-.role-form {
-  background-color: #EEEEEE;
-  margin-top: 6px;
 }
 
 .role-select {
@@ -134,4 +138,10 @@ input[type="checkbox"] {
 .error {
   margin-top: 8px;
   color: red;
+}
+
+.field-icon {
+  display: flex;
+  position: absolute;
+  margin: 6px;
 }
