@@ -85,7 +85,7 @@ export default class UserList extends React.Component {
                   <Transformation width='50' height='50' gravity='face' crop='thumb'/>
                   <Transformation default_image='avatar.png'/>
                 </Image>
-                {u.first_name + ' ' + u.last_name}
+                <div className='name'>{u.first_name + ' ' + u.last_name}</div>
               </div>
             </div>
           )
