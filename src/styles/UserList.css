@@ -50,3 +50,9 @@
   margin: 20px auto;
   display: flex;
 }
+
+.avatar {
+  font-size: 28px !important;
+  padding: 7px 0px;
+  color: #21C9AB;
+}

@@ -90,7 +90,7 @@ export default class UserMenuCard extends React.Component {
               onClick={() => {
                 this.props.getClasses(`/users/${this.props.user.id}`)
                 this.props.updateUserView('classes')}
-              }>My Upcoming</button>
+              }>My Classes</button>
             <button className={this.selected('teachers')} onClick={() => this.props.updateUserView('teachers')}>Faculty</button>
           </div>
           <div className='bottom'>

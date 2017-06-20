@@ -79,13 +79,10 @@ export default class UserList extends React.Component {
             <div key={u.id} className='roll-call-row'>
               {this.renderAttendanceButton(u)}
               <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})}>
-                <Image className='tiny-photo' cloudName='dqehbd6wb'
-                  publicId={'2017_' + u.last_name + '_' + u.first_name + '_cdi_gskrap'}
-                  alt={u.last_name + '_' + u.first_name} >
-                  <Transformation width='50' height='50' gravity='face' crop='thumb'/>
-                  <Transformation default_image='avatar.png'/>
-                </Image>
-                <div className='name'>{u.first_name + ' ' + u.last_name}</div>
+                <i className="fa fa-user avatar" aria-hidden="true"></i>
+                <div className='name'>
+                  {u.first_name + ' ' + u.last_name}
+                </div>
               </div>
             </div>
           )
