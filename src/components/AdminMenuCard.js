@@ -19,6 +19,8 @@ export default class AdminMenuCard extends React.Component {
     switch(this.props.adminView) {
       case 'allClasses':
         return <ClassListContainer all={true}/>
+      case 'upcomingClasses':
+        return <ClassListContainer all={true} upcoming={true}/>
       case 'createClass':
         return <ClassCreateFormContainer/>
       case 'locations':
@@ -34,6 +36,7 @@ export default class AdminMenuCard extends React.Component {
         <div className='admin-menu'>
           <div className='top'>
             <button className={this.selected('allClasses')} onClick={() => this.props.updateAdminView('allClasses')}>All Classes</button>
+            <button className={this.selected('upcomingClasses')} onClick={() => this.props.updateAdminView('upcomingClasses')}>Upcoming</button>
             <button className={this.selected('createClass')} onClick={() => this.props.updateAdminView('createClass')}>Create Class</button>
             <button className={this.selected('locations')} onClick={() => this.props.updateAdminView('locations')}>Locations</button>
             <button className={this.selected('editUsers')} onClick={() => this.props.updateAdminView('editUsers')}>Edit Users</button>

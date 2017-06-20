@@ -30,7 +30,7 @@ const store = configureStore({
   users: [],
   teachers: [],
 
-  adminView: 'allClasses',
+  adminView: 'upcomingClasses',
   userView: 'classes'
 })
 

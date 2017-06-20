@@ -58,9 +58,10 @@ export default class ClassList extends React.Component {
   }
 
   renderClassList() {
+    let classes = (this.props.upcoming ? this.props.classes.filter(c => {return moment(c.end_time) > moment(new Date())}) : this.props.classes)
     return (
       <div className='class-list'>
-        {this.props.classes.map((c) => {
+        {classes.map((c) => {
           return <ClassCardContainer key={c.id} danceClass={c} showRollCallForm={this.showRollCallForm.bind(this)} showEditCard={this.showEditCard.bind(this)}/>
         })}
       </div>

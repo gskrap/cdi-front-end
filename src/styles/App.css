@@ -88,3 +88,9 @@ select {
 .roll-head {
   margin: 2px;
 }
+
+@media (max-width: 450px) {
+  .top>button {
+    font-size: 8px;
+  }
+}
