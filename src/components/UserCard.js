@@ -8,6 +8,7 @@ import EmergencyContactCard from '../components/EmergencyContactCard'
 import UserGroupsForm from '../components/UserGroupsForm'
 import UserInfoForm from '../components/UserInfoForm'
 import UserRoleForm from '../components/UserRoleForm'
+import UserDeleteButton from '../components/UserDeleteButton'
 import LittleLoader from '../components/LittleLoader'
 
 import '../styles/UserCard.css'
@@ -90,6 +91,13 @@ export default class UserCard extends React.Component {
     )
   }
 
+  renderDeleteButton() {
+    return (
+      this.props.currentUser.role == 'admin' ?
+        <UserDeleteButton user={this.user}/> : null
+    )
+  }
+
   renderEmergencyContactContainer() {
     return (
       this.props.currentUser.role == 'admin' ?
@@ -129,6 +137,7 @@ export default class UserCard extends React.Component {
         {this.renderUserInfoForm()}
         {this.renderUserGroupsForm()}
         {this.renderUserRoleForm()}
+        {this.renderDeleteButton()}
         {this.renderEmergencyContactContainer()}
       </div>
     )
