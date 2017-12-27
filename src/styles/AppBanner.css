@@ -1,6 +1,5 @@
 .app-banner {
-  background-color: #63666A;
-  color: white;
+  color: #21C9AB;
   font-size: 50px;
   font-family: 'varsity';
 }
@@ -37,4 +36,11 @@
 
 .split.cdi:hover {
   cursor: pointer;
+}
+
+.miami {
+  width: 60px;
+  position: absolute;
+  top: 32px;
+  margin-left: -12px;
 }
