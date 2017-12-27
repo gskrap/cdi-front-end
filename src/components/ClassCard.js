@@ -60,7 +60,9 @@ export default class ClassCard extends React.Component {
         <div className='class-card'>
           <div className='half'>
             <div className='title parallelogram'><div>{this.props.danceClass.name}</div></div>
-            <div className='teacher'>{this.props.danceClass.teacher.first_name + ' ' + this.props.danceClass.teacher.last_name}</div>
+            <div className='teacher'>
+              {this.props.danceClass.teacher ? this.props.danceClass.teacher.first_name + ' ' + this.props.danceClass.teacher.last_name : ""}
+            </div>
             {this.renderSecondTeacher()}
             <div className='location'>{this.props.danceClass.location ? this.props.danceClass.location.name : 'No Location'}</div>
           </div>
