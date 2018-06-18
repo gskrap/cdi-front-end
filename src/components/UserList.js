@@ -79,7 +79,7 @@ export default class UserList extends React.Component {
             <div key={u.id} className='roll-call-row'>
               {this.renderAttendanceButton(u)}
               <div className='user-list-user' onClick={() => this.setState({showUser: true, selectedUser: u})}>
-                <i className="fa fa-user avatar" aria-hidden="true"></i>
+                <i className={'fa fa-user avatar' + (u.archived? ' archived-user-icon' : '')} aria-hidden="true"></i>
                 <div className='name'>
                   {u.first_name + ' ' + u.last_name}
                 </div>

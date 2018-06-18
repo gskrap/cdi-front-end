@@ -56,3 +56,7 @@
   padding: 7px 0px;
   color: #21C9AB;
 }
+
+.archived-user-icon {
+  color: red !important;
+}

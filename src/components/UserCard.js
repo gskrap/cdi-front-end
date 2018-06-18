@@ -126,6 +126,7 @@ export default class UserCard extends React.Component {
   render() {
     return (
       <div className='user-card'>
+        {this.user.archived ? <div style={{color: 'red'}}>This user is archived.</div> : null}
         <h2>{this.user.first_name + ' ' + this.user.last_name}</h2>
         <Image className='center' cloudName='dqehbd6wb' width='300' crop='scale'
           publicId={'2017_' + this.user.last_name + '_' + this.user.first_name + '_cdi_gskrap'}
