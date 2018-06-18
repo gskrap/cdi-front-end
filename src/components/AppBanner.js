@@ -15,16 +15,13 @@ export default class AppBanner extends React.Component {
                     this.props.getClasses('')
                     this.props.updateUserView('allClasses')
                     this.props.updateAdminView('allClasses')
-                  }}>CDI<img className="miami" src="https://i.imgur.com/PZOVUAG.png"/></div>
+                  }}>CDI</div>
                 <div className="split name">{this.props.user.first_name}</div>
                 <div className="split log-out"><span onClick={this.props.logOut}>log out</span></div>
               </div>
             )
           } else return (
-            <div>
-              CDI
-              <img className="miami" src="https://i.imgur.com/PZOVUAG.png"/>
-            </div>
+            <div>CDI</div>
           )
         })()}
       </div>
