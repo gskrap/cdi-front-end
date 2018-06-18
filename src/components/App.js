@@ -20,7 +20,8 @@ export default class App extends React.Component {
   renderView() {
     return (
       this.props.appLoading ?
-        <LoadingAnimation/> :
+        // <LoadingAnimation/> :
+        null :
       this.props.loggedIn ?
         <UserHomeContainer/> :
         <FormToggle/>
@@ -30,6 +31,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className='app-container'>
+        <div className={'main-logo-container' + ((this.props.anythingLoading || !this.props.loggedIn) ? ' bold' : '') + (this.props.loggedIn ? '' : ' spaced')}>
+          <img className={'main-logo'} src="https://i.imgur.com/qKsbE3Z.png"/>
+        </div>
         <AppBannerContainer />
         <main>
           {this.renderView()}

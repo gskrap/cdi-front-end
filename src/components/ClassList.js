@@ -71,7 +71,8 @@ export default class ClassList extends React.Component {
   render() {
     return (
       this.props.classesLoading ?
-        <LoadingAnimation/> :
+        // <LoadingAnimation/> :
+        null :
       this.state.showRollCallForm ?
         this.renderRollCallForm() :
       this.state.showClassEditForm ?

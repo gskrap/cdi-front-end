@@ -8,7 +8,7 @@
 }
 
 .class-card-container:nth-child(even) {
-  background-color: #FBFFFB;
+  background-color: rgba(128,128,128,0.05);
 }
 
 .class-card > .half {

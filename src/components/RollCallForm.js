@@ -36,7 +36,8 @@ export default class RollCallForm extends React.Component {
   render() {
     return (
       this.state.studentsLoading ?
-        <LoadingAnimation/> :
+        // <LoadingAnimation/> :
+        null :
         this.renderForm()
     )
   }

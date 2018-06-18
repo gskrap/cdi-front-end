@@ -17,11 +17,11 @@ const store = configureStore({
   currentUser: null,
 
   appLoading: false,
-  classesLoading: true,
-  groupsLoading: true,
-  locationsLoading: true,
+  classesLoading: false,
+  groupsLoading: false,
+  locationsLoading: false,
   usersLoading: false,
-  teachersLoading: true,
+  teachersLoading: false,
   classSaving: false,
 
   classes: [],

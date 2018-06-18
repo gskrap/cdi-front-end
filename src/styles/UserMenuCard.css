@@ -10,8 +10,10 @@
 }
 
 .user-menu > .bottom {
-  flex: 1;
   margin: 4px;
+  height: 100%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .warning {

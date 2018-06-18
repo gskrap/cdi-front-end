@@ -95,7 +95,8 @@ export default class UserList extends React.Component {
   render() {
     return (
       this.props.usersLoading ?
-        <LoadingAnimation/> :
+        // <LoadingAnimation/> :
+        null :
       this.state.showUser ?
         this.renderUserCard() :
         this.renderUserList()

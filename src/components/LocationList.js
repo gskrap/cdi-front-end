@@ -33,7 +33,8 @@ export default class LocationList extends React.Component {
   render() {
     return (
       this.props.locationsLoading ?
-        <LoadingAnimation/> :
+        // <LoadingAnimation/> :
+        null :
         <div>
           <div className='form-container'>
             <form className='form' onSubmit={this.handleSubmit.bind(this)}>
