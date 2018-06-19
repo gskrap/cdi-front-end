@@ -27,6 +27,7 @@ export default class ClassCreateForm extends React.Component {
       teacher_id: -1,
       secondary_teacher_id: -1,
       location_id: -1,
+      notes: '',
       start_time: moment().roundNext15Min(),
       end_time: moment().roundNext15Min(),
     }
@@ -70,6 +71,7 @@ export default class ClassCreateForm extends React.Component {
       teacher_id: -1,
       secondary_teacher_id: -1,
       location_id: -1,
+      notes: '',
       error: null,
       start_time: moment().roundNext15Min(),
       end_time: moment().roundNext15Min(),
@@ -140,6 +142,7 @@ export default class ClassCreateForm extends React.Component {
               return <option key={l.id} value={parseInt(l.id)}>{l.name}</option>
             })}
           </select>
+          <input type='text' name='notes' placeholder='Notes' value={this.state.notes} onChange={this.handleInputChange}/>
           <div className='check-row'>
             {this.renderCheckBoxes()}
           </div>

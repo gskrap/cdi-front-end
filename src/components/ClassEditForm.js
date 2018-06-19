@@ -28,6 +28,7 @@ export default class ClassEditForm extends React.Component {
       teacher_id: this.props.danceClass.teacher_id || -1,
       secondary_teacher_id: this.props.danceClass.secondary_teacher_id || -1,
       location_id: this.props.danceClass.location_id || -1,
+      notes: this.props.danceClass.notes || '',
       start_time: this.props.danceClass.start_time ? moment(this.props.danceClass.start_time) : moment().roundNext15Min(),
       end_time: this.props.danceClass.end_time ? moment(this.props.danceClass.end_time) : moment().roundNext15Min(),
     }
@@ -103,6 +104,7 @@ export default class ClassEditForm extends React.Component {
                 return <option key={l.id} value={parseInt(l.id)}>{l.name}</option>
               })}
             </select>
+            <input type='text' name='notes' placeholder='Notes' value={this.state.notes} onChange={this.handleInputChange}/>
             <div className='date-time-pickers'>
               <Datetime
                 value={this.state.start_time}

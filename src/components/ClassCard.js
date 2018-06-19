@@ -65,6 +65,7 @@ export default class ClassCard extends React.Component {
             </div>
             {this.renderSecondTeacher()}
             <div className='location'>{this.props.danceClass.location ? this.props.danceClass.location.name : 'No Location'}</div>
+            <div className='notes'>{this.props.danceClass.notes}</div>
           </div>
           <div className='half'>
             <div className='date'>

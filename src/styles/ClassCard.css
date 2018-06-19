@@ -61,6 +61,13 @@
   margin: 0px;
 }
 
+.class-card > .half > .notes {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 6px;
+  color: #21C9AB;
+}
+
 .class-card > .half > div > .group {
   font-size: 10px;
   margin: 0px;
