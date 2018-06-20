@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import 'moment-timezone'
 
 import '../styles/ClassCard.css'
 
@@ -69,9 +70,9 @@ export default class ClassCard extends React.Component {
           </div>
           <div className='half'>
             <div className='date'>
-              <div className='title date-top'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).format('dddd M/D') : 'No Date'}</div>
-              <p className='inline'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).format('h:mm A') : ''}</p>
-              <p className='inline'>{this.props.danceClass.end_time ? moment(this.props.danceClass.end_time).format('\u00A0- h:mm A') : ''}</p>
+              <div className='title date-top'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/Los_Angeles').format('dddd M/D') : 'No Date'}</div>
+              <p className='inline'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/Los_Angeles').format('h:mm a z') : ''}</p>
+              <p className='inline'>{this.props.danceClass.end_time ? moment(this.props.danceClass.end_time).tz('America/Los_Angeles').format('\u00A0- h:mm a z') : ''}</p>
             </div>
             <div>
               {this.props.danceClass.groups.map((g, i) => {
