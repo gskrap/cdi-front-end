@@ -1,7 +1,7 @@
 /*light: #EEEEEE*/
 /*medium: #C1C1C1*/
 /*dark: #63666A*/
-/*teal: #21C9AB*/
+/*teal: #4BC3CF*/
 
 @font-face {
   font-family: 'varsity';
@@ -41,13 +41,6 @@ main {
   /*top: 20%;*/
 }
 
-.loading-animation-container {
-  position: absolute;
-  left: 1em;
-  right: 1em;
-  top: 220px;
-}
-
 button:focus {
   outline:0;
 }
@@ -60,7 +53,7 @@ button:focus {
 
 .btn-primary {
   height: 30px;
-  background-color: #21C9AB;
+  background-color: #4BC3CF;
   color: white;
   border: none;
 }
