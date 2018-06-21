@@ -21,7 +21,8 @@ export default class AppBanner extends React.Component {
               </div>
             )
           } else return (
-            <div>CDI</div>
+            //<div>CDI</div>
+            null
           )
         })()}
       </div>

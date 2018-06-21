@@ -102,10 +102,6 @@ select {
   opacity: 1;
 }
 
-.main-logo-container.spaced {
-  top: 220px;
-}
-
 @media (max-width: 450px) {
   .top>button {
     font-size: 8px;

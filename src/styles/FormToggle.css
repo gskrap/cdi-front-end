@@ -1,8 +1,7 @@
 .form-toggle {
   display: flex;
   flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 4px auto;
 }
 
 .btn-toggle-container {
