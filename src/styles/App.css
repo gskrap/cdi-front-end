@@ -1,7 +1,7 @@
 /*light: #EEEEEE*/
 /*medium: #C1C1C1*/
 /*dark: #63666A*/
-/*teal: #47008B*/
+/*teal: #4BC3CF*/
 
 @font-face {
   font-family: 'varsity';
@@ -53,7 +53,7 @@ button:focus {
 
 .btn-primary {
   height: 30px;
-  background-color: #47008B;
+  background-color: #4BC3CF;
   color: white;
   border: none;
 }

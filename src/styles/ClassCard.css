@@ -29,7 +29,7 @@
   flex: 1;
   margin-bottom: 10px;
   font-size: 24px;
-  color: #47008B;
+  color: #4BC3CF;
 }
 
 .small > .fa:hover {
@@ -65,7 +65,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-top: 6px;
-  color: #47008B;
+  color: #4BC3CF;
 }
 
 .class-card > .half > div > .group {
@@ -91,7 +91,7 @@
 
 .parallelogram {
   font-size: 14px;
-  border-bottom: 1px solid #47008B;
+  border-bottom: 1px solid #4BC3CF;
 }
 
 .button-row {
