@@ -70,9 +70,9 @@ export default class ClassCard extends React.Component {
           </div>
           <div className='half'>
             <div className='date'>
-              <div className='title date-top'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/New_York').format('dddd M/D') : 'No Date'}</div>
-              <p className='inline'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/New_York').format('h:mm a z') : ''}</p>
-              <p className='inline'>{this.props.danceClass.end_time ? moment(this.props.danceClass.end_time).tz('America/New_York').format('\u00A0- h:mm a z') : ''}</p>
+              <div className='title date-top'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/Los_Angeles').format('dddd M/D') : 'No Date'}</div>
+              <p className='inline'>{this.props.danceClass.start_time ? moment(this.props.danceClass.start_time).tz('America/Los_Angeles').format('h:mm a z') : ''}</p>
+              <p className='inline'>{this.props.danceClass.end_time ? moment(this.props.danceClass.end_time).tz('America/Los_Angeles').format('\u00A0- h:mm a z') : ''}</p>
             </div>
             <div>
               {this.props.danceClass.groups.map((g, i) => {
