@@ -12,6 +12,9 @@ const template = `
     <script src="https://use.fontawesome.com/c862f51525.js"></script>
     <script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
     <title>CDI</title>
   </head>
   <body>
