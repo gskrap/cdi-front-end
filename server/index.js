@@ -15,10 +15,10 @@ const template = `
     <meta name="apple-mobile-web-app-title" content="CDI" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="apple-touch-icon" href="https://i.imgur.com/O8eOfNd.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://i.imgur.com/O8eOfNd.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://i.imgur.com/O8eOfNd.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://i.imgur.com/O8eOfNd.png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/G2jmDO7.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://i.imgur.com/G2jmDO7.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://i.imgur.com/G2jmDO7.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://i.imgur.com/G2jmDO7.png">
     <title>CDI</title>
   </head>
   <body>
