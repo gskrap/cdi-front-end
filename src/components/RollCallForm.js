@@ -17,7 +17,7 @@ export default class RollCallForm extends React.Component {
     axios.get(API + '/dance_classes/' + this.props.danceClass.id + '/students')
       .then((response) => {
         setTimeout(() => {
-          this.setState({students: response.data, studentsLoading: false})
+          this.setState({students: response.data.filter(s => !s.archived), studentsLoading: false})
         }, TIMEOUT)
       })
       .catch((error) => {
