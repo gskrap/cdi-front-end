@@ -16,6 +16,7 @@ export default class UserInfoForm extends React.Component {
       phone: this.props.user.phone || '',
       email: this.props.user.email || '',
       date_of_birth: this.props.user.date_of_birth,
+      archived: this.props.user.archived,
       saving: false,
     }
   }
@@ -27,6 +28,7 @@ export default class UserInfoForm extends React.Component {
     user.bio = this.state.bio
     user.phone = this.state.phone
     user.date_of_birth = moment(this.state.date_of_birth).utc()
+    user.archived = this.state.archived
     setTimeout(() => {
       return axios({
         method: 'put',
@@ -37,6 +39,7 @@ export default class UserInfoForm extends React.Component {
           this.setState({bio: response.data.bio})
           this.setState({phone: response.data.phone})
           this.setState({date_of_birth: response.data.date_of_birth})
+          this.setState({archived: response.data.archived})
           this.props.updateInfoFields(response.data)
           this.setState({saving: false})
         })
@@ -73,6 +76,10 @@ export default class UserInfoForm extends React.Component {
           inputProps={{readOnly:true}}
           timeFormat={false} closeOnSelect={true}
           viewMode='years'/>
+        <div>
+          <div>Archived</div>
+          <input type='checkbox' name='archived' checked={this.state.archived} onChange={this.handleInputChange.bind(this)}/>
+        </div>
         <input className='btn btn-primary btn-group' type='submit' value={this.state.saving ? 'Saving' : 'Save Info'}/>
       </form>
     )
