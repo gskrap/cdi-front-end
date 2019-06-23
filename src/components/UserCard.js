@@ -45,7 +45,7 @@ export default class UserCard extends React.Component {
 
   renderUserContactInfo() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      this.props.currentUser.role == 'admin' || this.props.currentUser.role == 'work_study' ?
         (
           <div>
             <div className='user-row'>
@@ -100,7 +100,7 @@ export default class UserCard extends React.Component {
 
   renderEmergencyContactContainer() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      this.props.currentUser.role == 'admin' || this.props.currentUser.role == 'work_study' ?
         (
           <div className='emergency-contact-list'>
             <h3>Emergency Contacts</h3>
