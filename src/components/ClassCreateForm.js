@@ -6,7 +6,7 @@ import LittleLoader from './LittleLoader'
 import '../styles/ClassCreateForm.css'
 import '../styles/Datetime.css'
 
-moment.tz.setDefault('America/Los_Angeles')
+moment.tz.setDefault('America/New_York')
 
 moment.fn.roundNext15Min = function() {
   let intervals = Math.floor(this.minutes() / 15)
