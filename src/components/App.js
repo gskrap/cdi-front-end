@@ -32,7 +32,7 @@ export default class App extends React.Component {
     return (
       <div className='app-container'>
         <div className={'main-logo-container' + ((this.props.anythingLoading || !this.props.loggedIn) ? ' bold' : '')}>
-          <img className={'main-logo'} src="https://i.imgur.com/qKsbE3Z.png"/>
+          <img className={'main-logo'} src="https://i.imgur.com/uVmKkNs.png"/>
           {this.props.anythingLoading && this.props.loggedIn ? <LoadingAnimation/> : null}
         </div>
         <AppBannerContainer />
