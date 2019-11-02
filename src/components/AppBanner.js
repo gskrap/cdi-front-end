@@ -38,7 +38,7 @@ export default class AppBanner extends React.Component {
                     this.props.updateAdminView('allClasses')
                   }}>CDI</div>
                 {/* <div className="split name">{this.props.user.first_name}</div> */}
-                <div className="split name" style={{textTransform: 'capitalize'}}>{(this.props.user || {}).role || 'charlotte'}</div>
+                <div className="split name" style={{textTransform: 'capitalize'}}>{(this.props.user || {}).role || 'winter'}</div>
                 {(() => {
                   if (this.props.loggedIn) {
                     return <div className="split log-out"><span onClick={this.props.logOut}>log out</span></div>

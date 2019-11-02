@@ -14,7 +14,8 @@ const template = `
     <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
     <meta name="apple-mobile-web-app-title" content="CDI" />
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-startup-image" href="https://i.imgur.com/oDlkK0l.png">
     <link rel="apple-touch-icon" href="https://i.imgur.com/G2jmDO7.png">
     <link rel="apple-touch-icon" sizes="76x76" href="https://i.imgur.com/G2jmDO7.png">
     <link rel="apple-touch-icon" sizes="120x120" href="https://i.imgur.com/G2jmDO7.png">
