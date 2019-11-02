@@ -30,8 +30,8 @@ const store = configureStore({
   users: [],
   teachers: [],
 
-  adminView: 'upcomingClasses',
-  userView: 'classes'
+  adminView: 'allClasses',
+  userView: 'allClasses'
 })
 
 export { store }

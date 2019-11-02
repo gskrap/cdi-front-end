@@ -5,6 +5,11 @@ import { getPermissions } from '../actions'
 function mapStateToProps(state) {
   return {
     appLoading: state.appLoading,
+    classesLoading: state.classesLoading,
+    teachersLoading: state.teachersLoading,
+    adminView: state.adminView,
+    userView: state.userView,
+    teachers: state.teachers,
     anythingLoading: (
       state.appLoading ||
       state.classesLoading ||

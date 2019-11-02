@@ -9,7 +9,7 @@ export default class UserRoleForm extends React.Component {
     super(props)
     this.state = {
       showUserRoleForm: false,
-      role: this.props.user.role,
+      role: (this.props.user || {}).role || 'student',
       saving: false
     }
   }

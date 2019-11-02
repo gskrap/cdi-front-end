@@ -1,11 +1,16 @@
 /*light: #EEEEEE*/
 /*medium: #C1C1C1*/
 /*dark: #63666A*/
-/*teal: #4BC3CF*/
+/*teal: black*/
 
 @font-face {
   font-family: 'varsity';
   src: url('../fonts/varsity_regular.woff') format('woff2')
+}
+
+.temp-login-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
 }
 
 html {
@@ -53,7 +58,7 @@ button:focus {
 
 .btn-primary {
   height: 30px;
-  background-color: #4BC3CF;
+  background-color: black;
   color: white;
   border: none;
 }
@@ -90,7 +95,7 @@ select {
   width: 100vw;
   position: absolute;
   top: 180px;
-  opacity: 0.15;
+  opacity: 0.10;
 }
 
 .main-logo {

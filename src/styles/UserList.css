@@ -28,7 +28,7 @@
 }
 
 .roll-active {
-  color: #4BC3CF;
+  color: black;
 }
 
 .roll-inactive {
@@ -54,7 +54,7 @@
 .avatar {
   font-size: 28px !important;
   padding: 7px 0px;
-  color: #4BC3CF;
+  color: black;
 }
 
 .archived-user-icon {

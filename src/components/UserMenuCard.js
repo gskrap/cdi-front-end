@@ -19,8 +19,9 @@ export default class UserMenuCard extends React.Component {
   }
 
   componentWillMount() {
-    this.checkPhoto()
-    this.props.getClasses(`/users/${this.props.user.id}`)
+    // this.checkPhoto()
+    // this.props.getClasses(`/users/${this.props.user.id}`)
+    this.props.getClasses('')
   }
 
   uploadWidget() {
@@ -79,18 +80,19 @@ export default class UserMenuCard extends React.Component {
       <div>
         <div className='user-menu'>
           {this.renderPhotoUploadButton()}
-          <EmergencyContactForm userId={this.props.user.id}/>
+          {/* <EmergencyContactForm userId={this.props.user.id}/> */}
           <div className='top'>
             <button className={this.selected('allClasses')}
               onClick={() => {
                 this.props.getClasses('')
                 this.props.updateUserView('allClasses')}
               }>All Classes</button>
-            <button className={this.selected('classes')}
+            {/* <button className={this.selected('classes')}
               onClick={() => {
-                this.props.getClasses(`/users/${this.props.user.id}`)
+                // this.props.getClasses(`/users/${this.props.user.id}`)
+                this.props.getClasses('')
                 this.props.updateUserView('classes')}
-              }>My Classes</button>
+              }>My Classes</button> */}
             <button className={this.selected('teachers')} onClick={() => this.props.updateUserView('teachers')}>Faculty</button>
           </div>
           <div className='bottom'>

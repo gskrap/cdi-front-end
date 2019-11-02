@@ -25,7 +25,8 @@ export default class ClassList extends React.Component {
 
   fetchClasses() {
     let prefix = this.props.all ? '' : `/users/${this.props.user.id}`
-    this.props.getClasses(prefix)
+    // this.props.getClasses(prefix)
+    this.props.getClasses('')
   }
 
   showEditCard(danceClass) {

@@ -7,7 +7,7 @@ import '../styles/UserHome.css'
 export default class UserHome extends React.Component {
   renderView() {
     return (
-      this.props.user.role == 'admin' ?
+      (this.props.user || {}).role == 'admin' ?
         <AdminMenuCardContainer/> :
         <UserMenuCardContainer/>
     )

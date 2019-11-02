@@ -19,7 +19,7 @@ export default class ClassCard extends React.Component {
   }
 
   renderDeleteButton() {
-    if (this.props.user.role == 'admin') {
+    if ((this.props.user || {}).role == 'admin') {
       return (
         <i className='fa fa-trash' onClick={() => this.setState({showConfirmDelete: true})} aria-hidden="true"></i>
       )
@@ -27,7 +27,7 @@ export default class ClassCard extends React.Component {
   }
 
   renderEditButton() {
-    if (this.props.user.role == 'admin') {
+    if ((this.props.user || {}).role == 'admin') {
       return (
         <i className='fa fa-pencil' onClick={() => this.props.showEditCard(this.props.danceClass)} aria-hidden="true"></i>
       )
@@ -35,7 +35,7 @@ export default class ClassCard extends React.Component {
   }
 
   renderRollCallButton() {
-    if (['admin', 'work_study', 'teacher'].includes(this.props.user.role)) {
+    if (['admin', 'work_study', 'teacher'].includes((this.props.user || {}).role)) {
       return (
         <i className='fa fa-users' onClick={() => this.props.showRollCallForm(this.props.danceClass)} aria-hidden="true"></i>
       )

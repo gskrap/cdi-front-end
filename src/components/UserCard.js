@@ -45,7 +45,7 @@ export default class UserCard extends React.Component {
 
   renderUserContactInfo() {
     return (
-      this.props.currentUser.role == 'admin' || this.props.currentUser.role == 'work_study' ?
+      (this.props.currentUser || {}).role == 'admin' || (this.props.currentUser || {}).role == 'work_study' ?
         (
           <div>
             <div className='user-row'>
@@ -72,35 +72,35 @@ export default class UserCard extends React.Component {
 
   renderUserInfoForm() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      (this.props.currentUser || {}).role == 'admin' ?
         <UserInfoForm user={this.user} updateInfoFields={this.updateInfoFields.bind(this)}/> : null
     )
   }
 
   renderUserGroupsForm() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      (this.props.currentUser || {}).role == 'admin' ?
         <UserGroupsForm userId={this.user.id}/> : null
     )
   }
 
   renderUserRoleForm() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      (this.props.currentUser || {}).role == 'admin' ?
         <UserRoleForm user={this.user}/> : null
     )
   }
 
   renderDeleteButton() {
     return (
-      this.props.currentUser.role == 'admin' ?
+      (this.props.currentUser || {}).role == 'admin' ?
         <UserDeleteButton user={this.user}/> : null
     )
   }
 
   renderEmergencyContactContainer() {
     return (
-      this.props.currentUser.role == 'admin' || this.props.currentUser.role == 'work_study' ?
+      (this.props.currentUser || {}).role == 'admin' || (this.props.currentUser || {}).role == 'work_study' ?
         (
           <div className='emergency-contact-list'>
             <h3>Emergency Contacts</h3>

@@ -15,8 +15,8 @@ export default class LogInForm extends React.Component {
   render() {
     return (
       <form className='form' onSubmit={this.handleSubmit.bind(this)}>
-        <input type='email' ref='email' placeholder='Email'/><br/>
-        <input type='password' ref='password' placeholder='Password'/><br/>
+        <input style={{border: '1px solid lightgray'}} type='email' ref='email' placeholder='Email'/><br/>
+        <input style={{border: '1px solid lightgray'}} type='password' ref='password' placeholder='Password'/><br/>
         <input className='btn btn-primary btn-log' type='submit' value='Submit'/><br/>
       </form>
     )

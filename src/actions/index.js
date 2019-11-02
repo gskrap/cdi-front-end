@@ -310,6 +310,7 @@ export const locationCreate = (location) => dispatch => {
 }
 
 export const getTeachers = () => dispatch => {
+  dispatch(updateTeachersLoading(true))
   return axios.get(API + '/teachers')
     .then((response) => {
       setTimeout(() => {
